@@ -1,0 +1,182 @@
+name: E2E tests
+run-name: >-
+  ${{ github.event_name == 'schedule' && 'Weekly run' || 'Manual run' }}
+  · ${{ inputs.target || (github.event.schedule == '30 1 * * 1' && 'with-bugs') || 'production' }}
+  · ${{ inputs.rounds || (github.event.schedule == '30 1 * * 1' && '1') || '3' }} round(s)
+  · ${{ inputs.cases || 'all cases' }}${{ inputs.params && ' · custom test data' || '' }}
+
+# Manual runs usually come from the dashboard's test console, which calls the
+# workflow_dispatch API with these inputs. The GitHub "Run workflow" form works too.
+on:
+  workflow_dispatch:
+    inputs:
+      rounds:
+        description: 'Number of rounds (each round runs every selected test case once)'
+        type: choice
+        required: true
+        default: '3'
+        options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+      cases:
+        description: 'Test cases to run, comma-separated (e.g. TC04,TC12). Empty = all cases that apply to the target.'
+        type: string
+        required: false
+        default: ''
+      params:
+        description: 'Test data overrides as JSON, e.g. {"TC04":{"keyword":"pliers"}}. Empty = defaults from config/cases.json.'
+        type: string
+        required: false
+        default: ''
+      target:
+        description: 'Engine mode: production (every test passes) or with-bugs (the fault-injected Baccarat & Seamless Wallet mode; failures are matched to config/known-bugs.json)'
+        type: choice
+        required: true
+        default: production
+        options: [production, with-bugs]
+  schedule:
+    # Every Monday 01:00 UTC = 09:00 Taiwan time (UTC+8): production, 3 rounds.
+    - cron: '0 1 * * 1'
+    # Every Monday 01:30 UTC = 09:30 Taiwan time: the with-bugs release, 1 round.
+    - cron: '30 1 * * 1'
+
+permissions:
+  contents: write # push results to the "results" branch
+  pages: write # deploy the dashboard
+  id-token: write # required by actions/deploy-pages
+
+# One execution at a time; a new trigger waits instead of cancelling a running one.
+concurrency:
+  group: e2e
+  cancel-in-progress: false
+
+env:
+  RUN_DIR: test-output/run
+  KEEP_RUNS: 30
+  # The site under test (shared/targets.mjs) and the number of rounds, read by
+  # scripts/run-rounds.mjs. run-name and job names cannot read env, so they
+  # repeat these expressions.
+  TARGET: ${{ inputs.target || (github.event.schedule == '30 1 * * 1' && 'with-bugs') || 'production' }}
+  ROUNDS: ${{ inputs.rounds || (github.event.schedule == '30 1 * * 1' && '1') || '3' }}
+
+jobs:
+  # The dashboard's console follows a run by these names: the test job's name
+  # starts with "Run ", its step "Run tests", and the job "Deploy dashboard".
+  test:
+    name: Run ${{ inputs.rounds || (github.event.schedule == '30 1 * * 1' && '1') || '3' }} round(s) on ${{ inputs.target || (github.event.schedule == '30 1 * * 1' && 'with-bugs') || 'production' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    outputs:
+      failed: ${{ steps.aggregate.outputs.failed }}
+      total: ${{ steps.aggregate.outputs.total }}
+      verdict: ${{ steps.verdict.outputs.verdict }}
+      verdict_summary: ${{ steps.verdict.outputs.verdict_summary }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      # Inputs are passed as environment variables (never pasted into the script)
+      # and validated by run-rounds.mjs before any test runs. TARGET and ROUNDS
+      # come from the workflow env above.
+      - name: Run tests
+        env:
+          CASES: ${{ inputs.cases }}
+          CASE_PARAMS: ${{ inputs.params }}
+        run: node scripts/run-rounds.mjs
+
+      - name: Aggregate results
+        id: aggregate
+        if: always()
+        run: node scripts/aggregate.mjs
+
+      # Production: any failure is red. with-bugs: failures are matched to
+      # config/known-bugs.json (scripts/verdict.mjs). The verdict is only recorded
+      # here, so the results are still published; the Verdict job acts on it.
+      - name: Judge results
+        id: verdict
+        if: always() && steps.aggregate.outcome == 'success'
+        continue-on-error: true
+        run: node scripts/verdict.mjs --report-only
+
+      # The "results" branch stores the history shown on the dashboard. It is
+      # created automatically on the first run (e.g. in a fork).
+      - name: Fetch result history
+        if: always() && steps.aggregate.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          remote="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$remote" results > /dev/null; then
+            git clone --quiet --depth 1 --branch results "$remote" results-branch
+          else
+            echo "No results branch yet; starting a new history."
+            git init --quiet -b results results-branch
+            git -C results-branch remote add origin "$remote"
+          fi
+
+      - name: Publish results
+        if: always() && steps.aggregate.outcome == 'success'
+        working-directory: results-branch
+        run: |
+          node ../scripts/publish.mjs --run-dir "../$RUN_DIR" --data-dir data --keep "$KEEP_RUNS"
+          # One squashed commit holding only the kept runs keeps the branch small.
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout --quiet --orphan results-new
+          git add -A
+          git commit --quiet -m "Results after run ${{ steps.aggregate.outputs.run_id }}"
+          git push --quiet --force origin results-new:results
+
+      - name: Build dashboard
+        if: always() && steps.aggregate.outcome == 'success'
+        run: node scripts/build-site.mjs --data-dir results-branch/data --out _site
+
+      - name: Upload dashboard
+        if: always() && steps.aggregate.outcome == 'success'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy dashboard
+    needs: test
+    if: always() && needs.test.result == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+
+  # Results are always published first; this job then turns the workflow red
+  # when the verdict is red, so the README badge stays honest. Production: any
+  # failed test. with-bugs: a known bug was missed or a failure is unexplained.
+  verdict:
+    name: Verdict
+    needs: [test, deploy]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check results
+        env:
+          TEST_JOB: ${{ needs.test.result }}
+          DEPLOY_JOB: ${{ needs.deploy.result }}
+          VERDICT: ${{ needs.test.outputs.verdict }}
+          SUMMARY: ${{ needs.test.outputs.verdict_summary }}
+        run: |
+          if [ "$TEST_JOB" != "success" ]; then echo "::error::The test job did not finish ($TEST_JOB)."; exit 1; fi
+          if [ "$DEPLOY_JOB" != "success" ]; then echo "::error::The dashboard was not deployed ($DEPLOY_JOB)."; exit 1; fi
+          if [ "$VERDICT" != "green" ]; then echo "::error::${TARGET}: ${SUMMARY:-the results could not be judged (see the Judge results step).} See the dashboard for details."; exit 1; fi
+          echo "${TARGET}: ${SUMMARY}"

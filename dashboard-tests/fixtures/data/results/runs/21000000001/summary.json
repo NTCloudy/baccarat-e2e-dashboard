@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "21000000001",
+  "runNumber": 1,
+  "trigger": "scheduled",
+  "commit": "0123abc",
+  "repoUrl": "https://github.com/NTCloudy/playwright-e2e-dashboard",
+  "workflowRunUrl": "https://github.com/NTCloudy/playwright-e2e-dashboard/actions/runs/21000000001",
+  "startedAt": "2026-09-28T01:00:00.000Z",
+  "finishedAt": "2026-09-28T01:00:30.000Z",
+  "durationMs": 30000,
+  "rounds": 1,
+  "browser": "chromium",
+  "playwrightVersion": "1.62.1",
+  "baseURL": "https://practicesoftwaretesting.com",
+  "totals": {
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "total": 4,
+    "passRate": 1
+  },
+  "brokenRounds": 0,
+  "roundSummaries": [
+    {
+      "round": 1,
+      "startedAt": "2026-09-28T01:00:00.000Z",
+      "durationMs": 30000,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "report": "rounds/round-1/report/index.html",
+      "error": null
+    }
+  ],
+  "cases": [
+    {
+      "id": "TC01",
+      "module": "Home",
+      "title": "Home page loads",
+      "file": "01-home.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 4100,
+          "error": null,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc01"
+        }
+      ],
+      "passRate": 1
+    },
+    {
+      "id": "TC04",
+      "module": "Search",
+      "title": "Search by keyword",
+      "file": "02-search.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 3100,
+          "error": null,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc04"
+        }
+      ],
+      "passRate": 1
+    },
+    {
+      "id": "TC09",
+      "module": "Account",
+      "title": "Sign in with a valid account",
+      "file": "03-account.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 6200,
+          "error": null,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc09"
+        }
+      ],
+      "passRate": 1
+    },
+    {
+      "id": "TC11",
+      "module": "Cart",
+      "title": "Add a product to the cart",
+      "file": "04-cart.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 6000,
+          "error": null,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc11"
+        }
+      ],
+      "passRate": 1
+    }
+  ]
+}

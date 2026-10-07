@@ -1,0 +1,107 @@
+{
+  "$comment": "Test data for every Baccarat test case. Defaults are used by scheduled runs and by `npx playwright test`. The dashboard's test console (or the workflow's `params` input) can override them for a single run.",
+  "lists": {},
+  "cases": {
+    "TC01": {},
+    "TC02": {},
+    "TC03": {},
+    "TC04": {},
+    "TC05": {},
+    "TC06": {},
+    "TC07": {
+      "params": {
+        "amount": {
+          "type": "integer",
+          "default": 50,
+          "min": 10,
+          "max": 1000,
+          "label": { "zh-TW": "閒家下注金額", "en": "Player bet amount" },
+          "hint": { "zh-TW": "桌台限紅 $10 – $5,000", "en": "Table limit $10 – $5,000" }
+        }
+      }
+    },
+    "TC08": {
+      "params": {
+        "amount": {
+          "type": "integer",
+          "default": 35,
+          "min": 15,
+          "max": 995,
+          "label": { "zh-TW": "莊家下注金額（含小數抽水）", "en": "Banker bet amount (fractional commission)" },
+          "hint": { "zh-TW": "建議用非 20 倍數（如 35），驗證 5% 抽水精準到分（$35 × 0.95 = $33.25）", "en": "Use a non-multiple of 20 (e.g. 35) to verify exact cent commission ($35 x 0.95 = $33.25)" }
+        }
+      }
+    },
+    "TC09": {
+      "params": {
+        "tieBet": {
+          "type": "integer",
+          "default": 20,
+          "min": 10,
+          "max": 200,
+          "label": { "zh-TW": "和局下注金額", "en": "Tie bet amount" }
+        },
+        "mainBet": {
+          "type": "integer",
+          "default": 50,
+          "min": 10,
+          "max": 300,
+          "label": { "zh-TW": "莊／閒主注金額", "en": "Player/Banker main bet amount" }
+        }
+      }
+    },
+    "TC10": {
+      "params": {
+        "amount": {
+          "type": "integer",
+          "default": 20,
+          "min": 10,
+          "max": 200,
+          "label": { "zh-TW": "對子邊注金額", "en": "Pair side-bet amount" }
+        }
+      }
+    },
+    "TC11": {},
+    "TC12": {},
+    "TC13": {},
+    "TC14": {
+      "params": {
+        "concurrency": {
+          "type": "integer",
+          "default": 5,
+          "min": 2,
+          "max": 10,
+          "label": { "zh-TW": "同時併發梭哈請求數", "en": "Concurrent all-in requests" },
+          "hint": { "zh-TW": "同時間送出 N 筆全額下注，驗證只允許 1 筆成功", "en": "Sends N simultaneous full-balance bets; exactly 1 must succeed" }
+        }
+      }
+    },
+    "TC15": {
+      "params": {
+        "amount": {
+          "type": "integer",
+          "default": 50,
+          "min": 10,
+          "max": 500,
+          "label": { "zh-TW": "重送測試下注金額", "en": "Idempotent bet amount" }
+        }
+      }
+    },
+    "TC16": {},
+    "TC17": {},
+    "TC18": {},
+    "TC19": {},
+    "TC20": {
+      "params": {
+        "rounds": {
+          "type": "integer",
+          "default": 100000,
+          "min": 20000,
+          "max": 200000,
+          "label": { "zh-TW": "Monte Carlo 模擬局數", "en": "Monte Carlo simulated rounds" },
+          "hint": { "zh-TW": "預設模擬 100,000 局（8 副牌）驗證機率與 RTP", "en": "Simulates 100,000 hands (8 decks) to verify probabilities and RTP" }
+        }
+      }
+    }
+  }
+}

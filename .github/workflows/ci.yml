@@ -1,0 +1,92 @@
+name: CI
+
+# Quick checks for every pull request and every push to main (including the
+# description edits saved from the dashboard): type check, lint, config check
+# and the dashboard's own tests. Pull requests also run three E2E smoke cases
+# against the live demo site; the full suite runs in e2e.yml.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Type check, lint and dashboard tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check test data and descriptions
+        run: npm run check:config
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      # The dashboard is tested against a site built from fixture data, with the
+      # GitHub API mocked: no real runs are started and nothing is written.
+      - name: Dashboard tests
+        run: npm run test:dashboard
+
+      - name: Upload dashboard test report
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: dashboard-test-report
+          path: test-output/dashboard-report
+          retention-days: 7
+
+  smoke:
+    name: E2E smoke tests
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run smoke cases (TC01, TC08, TC14)
+        run: npx playwright test --grep "TC01 |TC08 |TC14 "
+
+      - name: Upload smoke test report
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: smoke-test-report
+          path: test-output/local/report
+          retention-days: 7

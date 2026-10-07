@@ -1,0 +1,79 @@
+[
+  {
+    "id": "local-20261006-133000",
+    "runNumber": null,
+    "trigger": "local",
+    "startedAt": "2026-10-06T13:30:00.000Z",
+    "durationMs": 61000,
+    "rounds": 1,
+    "commit": null,
+    "totals": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "total": 4,
+      "passRate": 1
+    },
+    "brokenRounds": 0,
+    "caseCount": 4,
+    "catalogSize": 16,
+    "customData": true
+  },
+  {
+    "id": "21000000003",
+    "runNumber": 3,
+    "trigger": "manual",
+    "startedAt": "2026-10-05T08:00:00.000Z",
+    "durationMs": 245000,
+    "rounds": 3,
+    "commit": "abc1234",
+    "totals": {
+      "passed": 8,
+      "failed": 1,
+      "skipped": 3,
+      "total": 12,
+      "passRate": 0.8888888888888888
+    },
+    "brokenRounds": 0,
+    "caseCount": 4,
+    "catalogSize": 16,
+    "customData": false
+  },
+  {
+    "id": "21000000002",
+    "runNumber": 2,
+    "trigger": "manual",
+    "startedAt": "2026-10-05T01:00:00.000Z",
+    "durationMs": 95000,
+    "rounds": 2,
+    "commit": "abc1234",
+    "totals": {
+      "passed": 1,
+      "failed": 2,
+      "skipped": 0,
+      "total": 3,
+      "passRate": 0.3333333333333333
+    },
+    "brokenRounds": 1,
+    "caseCount": 3,
+    "catalogSize": 16,
+    "customData": false
+  },
+  {
+    "id": "21000000001",
+    "runNumber": 1,
+    "trigger": "scheduled",
+    "startedAt": "2026-09-28T01:00:00.000Z",
+    "durationMs": 30000,
+    "rounds": 1,
+    "commit": "0123abc",
+    "totals": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "total": 4,
+      "passRate": 1
+    },
+    "brokenRounds": 0
+  }
+]

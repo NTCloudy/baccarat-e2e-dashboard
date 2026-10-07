@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Royal Punto Banco · 8-Deck Baccarat Table</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="brand">
+        <span class="brand-badge">VIP TABLE #01</span>
+        <h1 data-test="table-title">Royal Punto Banco · 8-Deck Baccarat</h1>
+      </div>
+      <div class="status-cluster">
+        <span class="badge" data-test="target-mode">PRODUCTION</span>
+        <span class="badge status-open" data-test="table-status">BETTING_OPEN</span>
+        <div class="wallet-box">
+          <span class="wallet-label">Seamless Wallet</span>
+          <strong class="wallet-amount" data-test="wallet-balance">$1,000.00</strong>
+        </div>
+        <div class="wallet-box">
+          <span class="wallet-label">Total Wager</span>
+          <strong class="wallet-amount" data-test="total-bet">$0.00</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="table-layout">
+      <section class="felt-area">
+        <div class="dealing-stage">
+          <div class="hand-panel player-panel">
+            <div class="hand-header">
+              <h2>PLAYER (閒)</h2>
+              <span class="points-badge" data-test="player-points">—</span>
+            </div>
+            <div class="cards-row" data-test="player-cards"></div>
+          </div>
+
+          <div class="outcome-banner" data-test="round-outcome">PLACE YOUR BETS</div>
+
+          <div class="hand-panel banker-panel">
+            <div class="hand-header">
+              <h2>BANKER (莊)</h2>
+              <span class="points-badge" data-test="banker-points">—</span>
+            </div>
+            <div class="cards-row" data-test="banker-cards"></div>
+          </div>
+        </div>
+
+        <div class="bet-grid">
+          <button type="button" class="bet-zone side-zone" data-zone="playerPair" data-test="bet-zone-playerPair">
+            <span class="zone-title">PLAYER PAIR (閒對)</span>
+            <span class="zone-odds">1 : 11</span>
+            <span class="zone-limits">$10 – $1,000</span>
+            <span class="zone-stake" data-test="bet-amount-playerPair">$0.00</span>
+          </button>
+
+          <button type="button" class="bet-zone tie-zone" data-zone="tie" data-test="bet-zone-tie">
+            <span class="zone-title">TIE (和)</span>
+            <span class="zone-odds">1 : 8</span>
+            <span class="zone-limits">$10 – $1,000</span>
+            <span class="zone-stake" data-test="bet-amount-tie">$0.00</span>
+          </button>
+
+          <button type="button" class="bet-zone side-zone" data-zone="bankerPair" data-test="bet-zone-bankerPair">
+            <span class="zone-title">BANKER PAIR (莊對)</span>
+            <span class="zone-odds">1 : 11</span>
+            <span class="zone-limits">$10 – $1,000</span>
+            <span class="zone-stake" data-test="bet-amount-bankerPair">$0.00</span>
+          </button>
+
+          <button type="button" class="bet-zone main-zone player-zone" data-zone="player" data-test="bet-zone-player">
+            <span class="zone-title">PLAYER (閒)</span>
+            <span class="zone-odds">1 : 1</span>
+            <span class="zone-limits">$10 – $5,000</span>
+            <span class="zone-stake" data-test="bet-amount-player">$0.00</span>
+          </button>
+
+          <button type="button" class="bet-zone main-zone banker-zone" data-zone="banker" data-test="bet-zone-banker">
+            <span class="zone-title">BANKER (莊 · 5% Comm.)</span>
+            <span class="zone-odds">1 : 0.95</span>
+            <span class="zone-limits">$10 – $5,000</span>
+            <span class="zone-stake" data-test="bet-amount-banker">$0.00</span>
+          </button>
+        </div>
+
+        <div class="controls-bar">
+          <div class="chip-rack" role="group" aria-label="Chip denomination">
+            <button type="button" class="chip active" data-chip="10" data-test="chip-10">$10</button>
+            <button type="button" class="chip" data-chip="25" data-test="chip-25">$25</button>
+            <button type="button" class="chip" data-chip="100" data-test="chip-100">$100</button>
+            <button type="button" class="chip" data-chip="500" data-test="chip-500">$500</button>
+          </div>
+          <div class="action-buttons">
+            <button type="button" class="btn btn-secondary" data-test="btn-clear">Clear Bets</button>
+            <button type="button" class="btn btn-primary" data-test="btn-deal">Deal Hand</button>
+            <button type="button" class="btn btn-outline" data-test="btn-reset">Reset Session</button>
+          </div>
+        </div>
+
+        <div class="message-banner" data-test="table-message" hidden></div>
+      </section>
+
+      <aside class="side-panel">
+        <div class="panel-card">
+          <h3>Bead Road (珠盤路)</h3>
+          <div class="bead-road" data-test="bead-road"></div>
+        </div>
+
+        <div class="panel-card">
+          <h3>Wallet Transaction Ledger (帳變明細)</h3>
+          <table class="ledger-table">
+            <thead>
+              <tr>
+                <th>TX ID</th>
+                <th>Type</th>
+                <th>Detail</th>
+                <th>Before</th>
+                <th>Delta</th>
+                <th>After</th>
+              </tr>
+            </thead>
+            <tbody data-test="ledger-rows"></tbody>
+          </table>
+        </div>
+      </aside>
+    </main>
+
+    <script type="module" src="/table.js"></script>
+  </body>
+</html>

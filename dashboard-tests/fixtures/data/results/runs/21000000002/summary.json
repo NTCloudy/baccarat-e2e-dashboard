@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 2,
+  "id": "21000000002",
+  "runNumber": 2,
+  "trigger": "manual",
+  "commit": "abc1234",
+  "repoUrl": "https://github.com/NTCloudy/playwright-e2e-dashboard",
+  "workflowRunUrl": "https://github.com/NTCloudy/playwright-e2e-dashboard/actions/runs/21000000002",
+  "startedAt": "2026-10-05T01:00:00.000Z",
+  "finishedAt": "2026-10-05T01:01:35.000Z",
+  "durationMs": 95000,
+  "rounds": 2,
+  "selection": {
+    "all": false,
+    "cases": ["TC04", "TC05", "TC06"],
+    "catalogSize": 16
+  },
+  "browser": "chromium",
+  "playwrightVersion": "1.62.1",
+  "baseURL": "https://practicesoftwaretesting.com",
+  "totals": {
+    "passed": 1,
+    "failed": 2,
+    "skipped": 0,
+    "total": 3,
+    "passRate": 0.3333333333333333
+  },
+  "brokenRounds": 1,
+  "roundSummaries": [
+    {
+      "round": 1,
+      "startedAt": "2026-10-05T01:00:00.000Z",
+      "durationMs": 60000,
+      "passed": 1,
+      "failed": 2,
+      "skipped": 0,
+      "report": "rounds/round-1/report/index.html",
+      "error": null
+    },
+    {
+      "round": 2,
+      "startedAt": "2026-10-05T01:01:00.000Z",
+      "durationMs": 35000,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "report": "rounds/round-2/report/index.html",
+      "error": "No results.json was produced for this round."
+    }
+  ],
+  "cases": [
+    {
+      "id": "TC04",
+      "module": "Search",
+      "title": "Search by keyword",
+      "file": "02-search.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 12100,
+          "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0\nReceived:   0",
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc04"
+        }
+      ],
+      "passRate": 0,
+      "params": [{ "key": "keyword", "value": "hammer", "default": "hammer" }]
+    },
+    {
+      "id": "TC05",
+      "module": "Search",
+      "title": "Find a specific product",
+      "file": "02-search.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 3000,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc05"
+        }
+      ],
+      "passRate": 1,
+      "params": [{ "key": "product", "value": "Claw Hammer", "default": "Claw Hammer" }]
+    },
+    {
+      "id": "TC06",
+      "module": "Search",
+      "title": "Search with no results",
+      "file": "02-search.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 11900,
+          "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByTestId('no-results')\nExpected: \"There are no products found.\"\nTimeout: 10000ms",
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc06"
+        }
+      ],
+      "passRate": 0,
+      "params": [{ "key": "keyword", "value": "NoSuchTool12345", "default": "NoSuchTool12345" }]
+    }
+  ]
+}

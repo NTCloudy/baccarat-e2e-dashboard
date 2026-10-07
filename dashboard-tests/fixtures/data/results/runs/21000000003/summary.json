@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 2,
+  "id": "21000000003",
+  "runNumber": 3,
+  "trigger": "manual",
+  "commit": "abc1234",
+  "repoUrl": "https://github.com/NTCloudy/baccarat-e2e-dashboard",
+  "workflowRunUrl": "https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/runs/21000000003",
+  "startedAt": "2026-10-05T08:00:00.000Z",
+  "finishedAt": "2026-10-05T08:04:05.000Z",
+  "durationMs": 245000,
+  "rounds": 3,
+  "selection": {
+    "all": false,
+    "cases": ["TC06", "TC10", "TC14", "TC17"],
+    "catalogSize": 16
+  },
+  "browser": "chromium",
+  "playwrightVersion": "1.62.1",
+  "baseURL": "http://127.0.0.1:4100",
+  "totals": {
+    "passed": 8,
+    "failed": 1,
+    "skipped": 3,
+    "total": 12,
+    "passRate": 0.8888888888888888
+  },
+  "brokenRounds": 0,
+  "roundSummaries": [
+    {
+      "round": 1,
+      "startedAt": "2026-10-05T08:00:00.000Z",
+      "durationMs": 80000,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 1,
+      "report": "rounds/round-1/report/index.html",
+      "error": null
+    },
+    {
+      "round": 2,
+      "startedAt": "2026-10-05T08:01:20.000Z",
+      "durationMs": 85000,
+      "passed": 2,
+      "failed": 1,
+      "skipped": 1,
+      "report": "rounds/round-2/report/index.html",
+      "error": null
+    },
+    {
+      "round": 3,
+      "startedAt": "2026-10-05T08:02:45.000Z",
+      "durationMs": 80000,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 1,
+      "report": "rounds/round-3/report/index.html",
+      "error": null
+    }
+  ],
+  "cases": [
+    {
+      "id": "TC06",
+      "module": "Tableau",
+      "title": "Banker on 6 draws only vs Player 6-7",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "skipped",
+          "durationMs": 11700,
+          "error": null,
+          "skipReason": "Blocked by external network verification.",
+          "blocked": true,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc06"
+        },
+        {
+          "round": 2,
+          "status": "skipped",
+          "durationMs": 11800,
+          "error": null,
+          "skipReason": "Blocked by external network verification.",
+          "blocked": true,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=fixture-tc06"
+        },
+        {
+          "round": 3,
+          "status": "skipped",
+          "durationMs": 11900,
+          "error": null,
+          "skipReason": "Blocked by external network verification.",
+          "blocked": true,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=fixture-tc06"
+        }
+      ],
+      "passRate": null,
+      "params": []
+    },
+    {
+      "id": "TC10",
+      "module": "Payout",
+      "title": "Player Pair & Banker Pair 1:11 side bets",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 6100,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc10"
+        },
+        {
+          "round": 2,
+          "status": "failed",
+          "durationMs": 16300,
+          "error": "Error: expect(received).toBe(expected)\n\nExpected: \"1\"\nReceived: \"0\"",
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": "rounds/round-2/shots/TC11.png",
+          "reportLink": "rounds/round-2/report/index.html#?testId=fixture-tc10"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 5900,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=fixture-tc10"
+        }
+      ],
+      "passRate": 0.6666666666666666,
+      "params": [
+        { "key": "amount", "value": 20, "default": 20 }
+      ]
+    },
+    {
+      "id": "TC14",
+      "module": "Wallet",
+      "title": "Concurrent race-condition protection",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 9100,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc14"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 9300,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=fixture-tc14"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 8800,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=fixture-tc14"
+        }
+      ],
+      "passRate": 1,
+      "params": [
+        { "key": "concurrency", "value": 5, "default": 5 }
+      ]
+    },
+    {
+      "id": "TC17",
+      "module": "Table & RTP",
+      "title": "Chip selection, multi-zone betting, and Clear Bets",
+      "file": "04-table-and-rtp.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 21000,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=fixture-tc17"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 22500,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=fixture-tc17"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 20400,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=fixture-tc17"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    }
+  ],
+  "rtpSimulation": {
+    "rounds": 100000,
+    "mode": "production",
+    "seed": 20261007,
+    "outcomes": {
+      "PLAYER": 44615,
+      "BANKER": 45852,
+      "TIE": 9533,
+      "playerPair": 7482,
+      "bankerPair": 7458
+    },
+    "probabilities": {
+      "player": 0.44615,
+      "banker": 0.45852,
+      "tie": 0.09533,
+      "playerPair": 0.07482,
+      "bankerPair": 0.07458
+    },
+    "rtp": {
+      "player": 0.98763,
+      "banker": 0.98937,
+      "tie": 0.85797,
+      "playerPair": 0.89784,
+      "bankerPair": 0.89496
+    },
+    "theoreticalRtp": {
+      "player": 0.9876,
+      "banker": 0.9894,
+      "tie": 0.8564,
+      "playerPair": 0.8964,
+      "bankerPair": 0.8964
+    },
+    "theoreticalProb": {
+      "player": 0.4462,
+      "banker": 0.4586,
+      "tie": 0.0952,
+      "playerPair": 0.0747,
+      "bankerPair": 0.0747
+    }
+  }
+}

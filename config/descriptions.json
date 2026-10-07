@@ -1,0 +1,203 @@
+{
+  "$comment": "Bilingual titles and descriptions of all 20 Baccarat test cases.",
+  "TC01": {
+    "title": {
+      "zh-TW": "天牌 8 或 9 點即定勝負（不補第三張牌）",
+      "en": "Natural 8 or 9 stands immediately"
+    },
+    "description": {
+      "zh-TW": "莊或閒首兩張合計 8 或 9 點（例牌／天牌）→ 雙方皆不補第三張牌，直接比點數結算",
+      "en": "When Player or Banker has an initial total of 8 or 9 (Natural) → neither side draws a third card"
+    }
+  },
+  "TC02": {
+    "title": {
+      "zh-TW": "閒家補牌規則（0–5 點補牌、6–7 點停牌）",
+      "en": "Player draws on 0 to 5 and stands on 6 to 7"
+    },
+    "description": {
+      "zh-TW": "無天牌時，驗證閒家首兩張 0–5 點必補第三張牌、6–7 點必停牌",
+      "en": "Without a Natural, Player draws a third card on initial totals 0–5 and stands on 6–7"
+    }
+  },
+  "TC03": {
+    "title": {
+      "zh-TW": "閒家停牌時之莊家補牌規則（莊 0–5 補、6–7 停）",
+      "en": "Banker draws on 0 to 5 and stands on 6 to 7 when Player stands"
+    },
+    "description": {
+      "zh-TW": "當閒家 6 或 7 點停牌未補第三張時 → 莊家首兩張 0–5 點補第三張牌，6–7 點停牌",
+      "en": "When Player stands on 6 or 7 (no third card) → Banker draws on 0–5 and stands on 6–7"
+    }
+  },
+  "TC04": {
+    "title": {
+      "zh-TW": "莊家 3 點對閒家第三張牌補牌邊界（遇 8 停牌，其餘補牌）",
+      "en": "Banker 3 stands against Player third card 8 and draws otherwise"
+    },
+    "description": {
+      "zh-TW": "莊家首兩張 3 點且閒家有補第三張牌 → 閒第三張為 8 點時莊家停牌；閒第三張非 8 點時莊家補牌",
+      "en": "Banker on 3 stands when Player's third card is 8, and draws a third card against any other Player third card"
+    }
+  },
+  "TC05": {
+    "title": {
+      "zh-TW": "莊家 4 點與 5 點對閒家第三張牌補牌邊界",
+      "en": "Banker 4 and 5 third-card drawing boundaries"
+    },
+    "description": {
+      "zh-TW": "莊 4 點於閒第三張 2–7 補牌（0/1/8/9 停）；莊 5 點於閒第三張 4–7 補牌（0–3/8/9 停）",
+      "en": "Banker 4 draws when Player's third card is 2–7 (stands on 0/1/8/9); Banker 5 draws on 4–7 (stands on 0–3/8/9)"
+    }
+  },
+  "TC06": {
+    "title": {
+      "zh-TW": "莊家 6 點與 7 點對閒家第三張牌補牌邊界",
+      "en": "Banker 6 and 7 third-card drawing boundaries"
+    },
+    "description": {
+      "zh-TW": "莊 6 點僅於閒第三張為 6 或 7 時補牌；莊 7 點無論閒第三張為何皆停牌",
+      "en": "Banker 6 draws only when Player's third card is 6 or 7; Banker 7 always stands"
+    }
+  },
+  "TC07": {
+    "title": {
+      "zh-TW": "閒贏 1:1 派彩與莊注扣款結算",
+      "en": "Player win pays 1 to 1 and Banker bet loses"
+    },
+    "description": {
+      "zh-TW": "押閒 ${amount} 開出閒贏 → 返還本利共 2 倍（淨贏 ${amount}），同時押莊之注單歸零",
+      "en": "Bet ${amount} on Player when Player wins → returns 2x stake (net +${amount}) while Banker bet loses"
+    }
+  },
+  "TC08": {
+    "title": {
+      "zh-TW": "莊贏 1:0.95 抽水 5% 小數點精度結算",
+      "en": "Banker win pays 1 to 0.95 with exact 5% commission"
+    },
+    "description": {
+      "zh-TW": "押莊 ${amount} 開出莊贏 → 扣除 5% 傭金後精準計算至美分（不得截斷吃分），帳變前後餘額完全吻合",
+      "en": "Bet ${amount} on Banker when Banker wins → pays exact 1:0.95 to the cent without truncation"
+    }
+  },
+  "TC09": {
+    "title": {
+      "zh-TW": "和局 1:8 派彩且莊、閒主注全額退還本金（Push）",
+      "en": "Tie pays 1 to 8 and pushes Player and Banker main bets"
+    },
+    "description": {
+      "zh-TW": "同時押和 ${tieBet}、押閒 ${mainBet}、押莊 ${mainBet} 開出和局 → 和注獲 1:8 派彩，莊與閒本金全額退還",
+      "en": "Bet ${tieBet} on Tie and ${mainBet} each on Player and Banker when Tie hits → Tie pays 1:8 and both main bets push"
+    }
+  },
+  "TC10": {
+    "title": {
+      "zh-TW": "閒對／莊對 1:11 邊注跨花色同點數判定與結算",
+      "en": "Player Pair and Banker Pair pay 1 to 11 on any suit combination"
+    },
+    "description": {
+      "zh-TW": "押閒對與莊對各 ${amount} → 首兩張同牌面（含不同花色如 ♠K + ♥K）即判定中獎並派彩 1:11",
+      "en": "Bet ${amount} on Player Pair and Banker Pair → initial two cards of the same rank (including mixed suits) pay 1:11"
+    }
+  },
+  "TC11": {
+    "title": {
+      "zh-TW": "五注區複合下注獨立結算與總帳核對",
+      "en": "Combined multi-zone bets settle main and side bets independently"
+    },
+    "description": {
+      "zh-TW": "同一局同時下注閒、莊、和、閒對、莊對 → 主注與邊注各自依規則獨立結算，總派彩與錢包餘額一致",
+      "en": "Place bets across all five zones in the same round → main bets and pair side-bets settle independently and match wallet balance"
+    }
+  },
+  "TC12": {
+    "title": {
+      "zh-TW": "各注區最小與最大限紅（Min / Max Bet）邊界攔截",
+      "en": "Table minimum and maximum bet limits are enforced"
+    },
+    "description": {
+      "zh-TW": "低於最小限紅（<$10）或累計超過最大限紅（主注 >$5,000、邊注／和注 >$1,000）皆拒絕收單且不扣款",
+      "en": "Bets below the minimum ($10) or exceeding the zone maximum ($5,000 main, $1,000 Tie/Pair) are rejected without debiting"
+    }
+  },
+  "TC13": {
+    "title": {
+      "zh-TW": "下注金額超過錢包可用餘額時拒絕交易",
+      "en": "Bet exceeding available wallet balance is rejected"
+    },
+    "description": {
+      "zh-TW": "當下注金額大於目前錢包餘額時 → 回傳 INSUFFICIENT_BALANCE 錯誤，餘額與帳變明細維持不變",
+      "en": "When a bet exceeds the available wallet balance → rejected with INSUFFICIENT_BALANCE and balance stays unchanged"
+    }
+  },
+  "TC14": {
+    "title": {
+      "zh-TW": "高併發同時梭哈（Race Condition）防超額扣款測試",
+      "en": "Concurrent all-in bets prevent race-condition overdraft"
+    },
+    "description": {
+      "zh-TW": "錢包僅存單筆金額時，以 Promise.all 同時發送 {concurrency} 筆全額下注 → 僅 1 筆成功，餘額絕不變為負數",
+      "en": "Fire {concurrency} simultaneous full-balance bets via Promise.all → exactly 1 succeeds and wallet balance never goes negative"
+    }
+  },
+  "TC15": {
+    "title": {
+      "zh-TW": "相同 idempotencyKey 重送注單之冪等防重扣測試",
+      "en": "Duplicate bet with the same idempotencyKey is deduplicated"
+    },
+    "description": {
+      "zh-TW": "以相同 idempotencyKey 連續發送 3 次 ${amount} 下注請求 → 僅扣款 1 次並回傳相同 transactionId",
+      "en": "Send 3 bet requests of ${amount} with the same idempotencyKey → debited once and returns the same transactionId"
+    }
+  },
+  "TC16": {
+    "title": {
+      "zh-TW": "關盤後（BETTING_CLOSED）拒絕偷下注與流水帳稽核",
+      "en": "Late bet after BETTING_CLOSED is rejected and ledger reconciles"
+    },
+    "description": {
+      "zh-TW": "桌台切換為 BETTING_CLOSED 後呼叫下注 API 必須回傳 409 拒收；且每筆帳變皆符合 before + delta = after",
+      "en": "Bets sent after BETTING_CLOSED are rejected with HTTP 409; every ledger row satisfies before + delta = after"
+    }
+  },
+  "TC17": {
+    "title": {
+      "zh-TW": "桌台 UI 籌碼切換、多注區點擊下注與清注退款",
+      "en": "Table UI chip selection, multi-zone betting, and Clear Bets refund"
+    },
+    "description": {
+      "zh-TW": "在桌台畫面切換籌碼面額點擊多注區 → 注區金額與錢包扣款即時更新；點 Clear Bets 全額退回錢包",
+      "en": "Select chips and click bet zones on the table UI → stakes and wallet update; Clear Bets refunds the full amount"
+    }
+  },
+  "TC18": {
+    "title": {
+      "zh-TW": "桌台 UI 發牌開獎、點數判定、珠盤路與帳變表更新",
+      "en": "Table UI deal updates cards, balance, Bead Road, and ledger"
+    },
+    "description": {
+      "zh-TW": "下注後點擊 Deal Hand → 畫面渲染莊閒撲克牌與點數、更新錢包結算餘額、新增珠盤路紀錄與帳變明細",
+      "en": "Place bets and click Deal Hand → renders cards and points, settles wallet balance, and updates Bead Road and ledger"
+    }
+  },
+  "TC19": {
+    "title": {
+      "zh-TW": "局中／局後重新整理頁面（Reload）狀態與餘額恢復",
+      "en": "Page reload recovers session wallet balance, Bead Road, and ledger"
+    },
+    "description": {
+      "zh-TW": "完成開獎與新局下注後重新整理瀏覽器 → 錢包餘額、已下注籌碼、珠盤路歷史與帳變流水完整恢復",
+      "en": "Reload the browser after dealing and placing a new bet → wallet balance, active bets, Bead Road, and ledger persist"
+    }
+  },
+  "TC20": {
+    "title": {
+      "zh-TW": "10 萬局 Monte Carlo 模擬驗證 8 副牌機率分佈與理論 RTP",
+      "en": "100,000-round Monte Carlo simulation matches 8-deck theoretical RTP"
+    },
+    "description": {
+      "zh-TW": "執行 {rounds} 局 8 副牌模擬 → 驗證莊/閒/和/對子出現率及實測 RTP（莊 98.94%、閒 98.76%）符合統計信賴區間",
+      "en": "Simulate {rounds} hands from 8-deck shoes → observed win rates and RTPs (Banker 98.94%, Player 98.76%) match theory"
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "$comment": "Known iGaming bugs injected in the `with-bugs` target of the Baccarat table & seamless wallet server. Each bug is detected by an automated test case and documented in a GitHub Issue with screenshot/log evidence.",
+  "source": {
+    "listUrl": "https://github.com/NTCloudy/baccarat-e2e-dashboard/issues",
+    "total": 12
+  },
+  "bugs": [
+    {
+      "id": 1,
+      "severity": "high",
+      "title": {
+        "zh-TW": "補牌規則錯誤：莊家 3 點且閒家第三張牌為 8 時，莊家誤補第三張牌",
+        "en": "Third-card tableau bug: Banker on 3 erroneously draws when Player's third card is 8"
+      },
+      "cases": ["TC04"],
+      "match": "\\[TC04 banker-3-vs-8\\]",
+      "issue": 1,
+      "evidence": "docs/bugs/bug-1.png"
+    },
+    {
+      "id": 2,
+      "severity": "high",
+      "title": {
+        "zh-TW": "和局結算錯誤：開出和局（Tie）時未退還莊、閒主注本金（Push），直接當輸局沒收",
+        "en": "Tie settlement bug: Tie outcome forfeits Player and Banker main bets instead of pushing"
+      },
+      "cases": ["TC09"],
+      "match": "\\[TC09 tie-push\\]",
+      "issue": 2,
+      "evidence": "docs/bugs/bug-2.png"
+    },
+    {
+      "id": 3,
+      "severity": "high",
+      "title": {
+        "zh-TW": "莊贏 5% 抽水精度錯誤：1:0.95 派彩直接無條件捨去小數點，吃掉玩家美分派彩",
+        "en": "Banker 5% commission bug: 1:0.95 payout truncates fractional dollars via Math.floor"
+      },
+      "cases": ["TC08"],
+      "match": "\\[TC08 banker-commission\\]",
+      "issue": 3,
+      "evidence": "docs/bugs/bug-3.png"
+    },
+    {
+      "id": 4,
+      "severity": "medium",
+      "title": {
+        "zh-TW": "對子邊注判定錯誤：首兩張同點數但不同花色（如 ♠K + ♥K）時漏判對子未派彩",
+        "en": "Pair side-bet bug: mixed-suit pairs of the same rank (e.g. ♠K + ♥K) are not paid"
+      },
+      "cases": ["TC10"],
+      "match": "\\[TC10 mixed-suit-pair\\]",
+      "issue": 4,
+      "evidence": "docs/bugs/bug-4.png"
+    },
+    {
+      "id": 5,
+      "severity": "high",
+      "title": {
+        "zh-TW": "高併發錢包漏洞：同時發送多筆全額下注時未加互斥鎖，導致超額扣款產生負餘額",
+        "en": "Wallet race condition: concurrent all-in bets bypass session locking and overdraw into negative balance"
+      },
+      "cases": ["TC14"],
+      "match": "\\[TC14 race-condition\\]",
+      "issue": 5,
+      "evidence": "docs/bugs/bug-5.png"
+    },
+    {
+      "id": 6,
+      "severity": "high",
+      "title": {
+        "zh-TW": "冪等性失效：網路重試送出相同 idempotencyKey 的注單時被重複扣款",
+        "en": "Idempotency failure: duplicate bet retries with the same idempotencyKey charge the wallet multiple times"
+      },
+      "cases": ["TC15"],
+      "match": "\\[TC15 idempotency\\]",
+      "issue": 6,
+      "evidence": "docs/bugs/bug-6.png"
+    },
+    {
+      "id": 7,
+      "severity": "high",
+      "title": {
+        "zh-TW": "關盤後偷下注漏洞：桌台狀態已進入 BETTING_CLOSED，直接呼叫 API 仍可成功塞單",
+        "en": "Late bet vulnerability: POST /api/bets still accepts wagers after table state is BETTING_CLOSED"
+      },
+      "cases": ["TC16"],
+      "match": "\\[TC16 late-bet\\]",
+      "issue": 7,
+      "evidence": "docs/bugs/bug-7.png"
+    },
+    {
+      "id": 8,
+      "severity": "high",
+      "title": {
+        "zh-TW": "牌靴發牌權重偏差：閒家異常高比例拿到天牌 9，導致 10 萬局實測閒家 RTP 飆破 110%",
+        "en": "Biased shoe RNG: Player receives excess Natural 9 hands, pushing 100k-round Player RTP above 110%"
+      },
+      "cases": ["TC20"],
+      "match": "\\[TC20 rtp-simulation\\]",
+      "issue": 8,
+      "evidence": "docs/bugs/bug-8.png"
+    }
+  ],
+  "unlisted": [],
+  "outOfScope": [
+    {
+      "ids": [9, 10],
+      "category": {
+        "zh-TW": "真人視訊串流與硬體洗牌機（Live Studio WebRTC / Physical Shoe Scanner）",
+        "en": "Live studio video streaming and physical shoe scanner hardware"
+      },
+      "reason": {
+        "zh-TW": "本專案聚焦於遊戲規則引擎、賠率結算、單一錢包併發帳務與 RTP 數學模型驗證，不包含視訊串流延遲測試。",
+        "en": "This suite targets the rules engine, payout math, seamless wallet concurrency, and RTP statistical verification rather than WebRTC video latency."
+      }
+    },
+    {
+      "ids": [11, 12],
+      "category": {
+        "zh-TW": "多幣別匯率轉換與第三方支付閘道（Multi-Currency FX & Payment Gateway）",
+        "en": "Multi-currency FX conversion and third-party payment gateway"
+      },
+      "reason": {
+        "zh-TW": "單一錢包以標準 USD（美分整數精度）驗證帳變與冪等性，不依賴外部匯率服務。",
+        "en": "The seamless wallet validates ledger accuracy and idempotency in USD cents without external FX feeds."
+      }
+    }
+  ]
+}

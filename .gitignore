@@ -1,0 +1,7 @@
+node_modules/
+test-output/
+playwright-report/
+test-results/
+_site/
+results-branch/
+.DS_Store

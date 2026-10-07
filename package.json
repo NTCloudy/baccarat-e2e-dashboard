@@ -1,0 +1,31 @@
+{
+  "name": "baccarat-e2e-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "iGaming QA automation portfolio: Playwright + TypeScript tests for an 8-deck Baccarat table & seamless wallet (third-card tableau, 5% commission, concurrency, idempotency, 100k-round RTP simulation), with a bilingual GitHub Pages dashboard.",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app/server.mjs",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:dashboard": "playwright test -c playwright.dashboard.config.ts",
+    "rounds": "node scripts/run-rounds.mjs",
+    "aggregate": "node scripts/aggregate.mjs",
+    "report": "playwright show-report test-output/local/report",
+    "site": "node scripts/publish.mjs && node scripts/build-site.mjs",
+    "serve": "node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "check:config": "node scripts/check-config.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.62.1",
+    "@types/node": "24.0.9",
+    "eslint": "10.10.0",
+    "eslint-plugin-playwright": "2.12.0",
+    "globals": "17.12.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.69.0"
+  }
+}
