@@ -203,7 +203,9 @@ export async function loadCatalog() {
     // `targets` limits a case to some targets (case-params.js appliesTo); null runs everywhere.
     const cases = Object.fromEntries(catalog.cases.map((c) => [c.id, { params: c.params, rules: c.rules, targets: c.targets ?? undefined }]));
     state.catalog = { ...catalog, knownBugs: catalog.knownBugs ?? null, config: { lists: catalog.lists, cases } };
-    state.descriptions = catalog.descriptions ?? {};
+    if (Object.keys(state.descriptions).length === 0) {
+      state.descriptions = catalog.descriptions ?? {};
+    }
   }
   return state.catalog;
 }
