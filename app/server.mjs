@@ -399,6 +399,13 @@ const server = http.createServer(async (req, res) => {
     return handleApi(req, res, url);
   }
 
+  if (url.pathname === '/engine.js') {
+    const enginePath = path.join(__dirname, 'engine.mjs');
+    res.writeHead(200, { 'Content-Type': MIME['.js'] });
+    fs.createReadStream(enginePath).pipe(res);
+    return;
+  }
+
   const relPath = url.pathname === '/' ? 'index.html' : url.pathname.replace(/^\/+/, '');
   const filePath = path.resolve(publicDir, relPath);
   if (!filePath.startsWith(publicDir) || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {

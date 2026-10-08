@@ -63,15 +63,20 @@ const customParams = (c) => (c.params ?? []).filter((p) => p.value !== p.default
 
 // ---------------------------------------------------------------- chrome (header + footer)
 
+let arenaMode = 'production';
+let arenaCollapsed = false;
+
 function renderHeader() {
   const onBugs = currentRoute().view === 'bugs';
   document.getElementById('header').innerHTML = `
     <div class="container header-inner">
       <a class="brand" href="#/">
-        <span class="brand-mark" aria-hidden="true">✓</span>
+        <span class="brand-mark" aria-hidden="true">♠</span>
         <span>${esc(t('appTitle'))}</span>
       </a>
       <div class="header-actions">
+        <a class="btn btn-gold" href="table/index.html" target="_blank" rel="noopener" title="${esc(t('liveTableHint'))}">
+          <span aria-hidden="true">🎰</span> ${esc(t('liveTableBtn'))}</a>
         <a class="btn nav-link" href="#/bugs" title="${esc(t('navBugsHint'))}"${onBugs ? ' aria-current="page"' : ''}>
           <span aria-hidden="true">🐞</span> ${esc(t('navBugs'))}</a>
         <a class="btn btn-primary" href="#/console" title="${esc(t('runTestsHint'))}">▶ ${esc(t('runTests'))}
@@ -109,9 +114,44 @@ function renderRunningBanner() {
     </a>`;
 }
 
+function renderCasinoArena() {
+  return `
+    <section class="casino-arena">
+      <div class="arena-header">
+        <div>
+          <span class="arena-badge">${esc(t('arenaBadge'))}</span>
+          <div class="arena-title">${esc(t('arenaTitle'))}</div>
+          <p class="arena-desc">${esc(t('arenaDesc'))}</p>
+        </div>
+        <div class="arena-actions">
+          <button type="button" class="btn ${arenaMode === 'production' ? 'btn-gold-active' : 'btn-outline-gold'}" data-arena-mode="production">
+            ${esc(t('arenaModeProd'))}
+          </button>
+          <button type="button" class="btn ${arenaMode === 'with-bugs' ? 'btn-crimson-active' : 'btn-outline-gold'}" data-arena-mode="with-bugs">
+            ${esc(t('arenaModeBugs'))}
+          </button>
+          <a class="btn btn-gold" href="table/index.html?mode=${encodeURIComponent(arenaMode)}" target="_blank" rel="noopener">
+            ${esc(t('arenaOpenFull'))}
+          </a>
+          <button type="button" class="btn" data-arena-toggle>
+            ${esc(t(arenaCollapsed ? 'arenaToggleShow' : 'arenaToggleHide'))}
+          </button>
+        </div>
+      </div>
+      ${
+        arenaCollapsed
+          ? ''
+          : `<div class="arena-frame-wrap">
+               <iframe class="live-table-frame" src="table/index.html?mode=${encodeURIComponent(arenaMode)}" title="Royal Punto Banco 8-Deck Baccarat Table" loading="lazy"></iframe>
+             </div>`
+      }
+    </section>`;
+}
+
 function renderHome(runs) {
   const intro = `
     <section class="hero">
+      <div class="hero-suits" aria-hidden="true">♠ ♥ ♣ ♦ VIP PIT BOSS TELEMETRY</div>
       <h1>${esc(t('appTitle'))}</h1>
       <p class="lead">${esc(t('appSubtitle'))}</p>
     </section>
@@ -124,6 +164,7 @@ function renderHome(runs) {
         <p>${esc(t('emptyBody'))}</p>
         <a class="btn btn-primary" href="#/console">▶ ${esc(t('runTests'))}</a>
       </section>
+      ${renderCasinoArena()}
       ${renderBugTeaser()}`;
   }
 
@@ -157,6 +198,7 @@ function renderHome(runs) {
   if (!production.length) {
     return `${intro}
       <section class="card empty"><p>${esc(t('noProductionRuns'))}</p></section>
+      ${renderCasinoArena()}
       ${renderBugTeaser()}
       ${history}`;
   }
@@ -169,27 +211,29 @@ function renderHome(runs) {
   return `${intro}
     ${otherRuns ? `<p class="muted stats-note">${esc(t('statsProductionOnly'))}</p>` : ''}
     <section class="kpis">
-      <a class="card kpi" href="#/run/${encodeURIComponent(latest.id)}">
+      <a class="card kpi kpi-plaque-spade" href="#/run/${encodeURIComponent(latest.id)}">
         <div class="kpi-label">${esc(t('kpiLatest'))}</div>
         <div class="kpi-value rate-text-${rateClass(latest.totals.passRate)}">${pct(latest.totals.passRate)}</div>
         <div class="kpi-sub">${latest.totals.passed} / ${executed} · ${esc(runLabel(latest))}</div>
       </a>
-      <div class="card kpi">
+      <div class="card kpi kpi-plaque-heart">
         <div class="kpi-label">${esc(t('kpiLastRun'))}</div>
         <div class="kpi-value kpi-value-sm">${esc(fmtDate(latest.startedAt))}</div>
         <div class="kpi-sub">${esc(triggerName(latest.trigger))} · ${esc(t('rounds'))} ${latest.rounds}</div>
       </div>
-      <div class="card kpi">
+      <div class="card kpi kpi-plaque-club">
         <div class="kpi-label">${esc(t('kpiRuns'))}</div>
         <div class="kpi-value">${production.length}</div>
         <div class="kpi-sub">${esc(otherRuns ? t('kpiRunsOther', { n: otherRuns }) : t('keepNote'))}</div>
       </div>
-      <a class="card kpi" href="#/console">
+      <a class="card kpi kpi-plaque-diamond" href="#/console">
         <div class="kpi-label">${esc(t('kpiCases'))}</div>
         <div class="kpi-value">${catalogSize}</div>
         <div class="kpi-sub">Chromium · Playwright · ${esc(t('kpiCasesLink'))} →</div>
       </a>
     </section>
+
+    ${renderCasinoArena()}
 
     ${renderBugTeaser()}
 
@@ -267,6 +311,7 @@ function renderRun(summary) {
   const detection = detectionOf(summary);
   const bugRun = judgesBugs(summary);
 
+  const targetHref = site.includes('localhost:4100') ? `table/index.html?mode=${encodeURIComponent(target)}` : site;
   const meta = [
     [t('started'), esc(fmtDate(summary.startedAt))],
     [t('duration'), esc(fmtDuration(summary.durationMs))],
@@ -275,7 +320,7 @@ function renderRun(summary) {
     [t('testData'), esc(customCases ? t('testDataCustom', { n: customCases }) : t('testDataDefault'))],
     [t('trigger'), esc(triggerName(summary.trigger))],
     [t('browser'), `Chromium · Playwright ${esc(summary.playwrightVersion)}`],
-    [t('target'), `<a href="${esc(site)}" target="_blank" rel="noopener">${esc(new URL(site).host)}</a>`],
+    [t('target'), `<a href="${esc(targetHref)}" target="_blank" rel="noopener">${esc(new URL(site).host)}</a>`],
     commitUrl ? [t('commit'), `<a href="${esc(commitUrl)}" target="_blank" rel="noopener"><code>${esc(summary.commit)}</code></a>`] : null,
     summary.workflowRunUrl ? ['GitHub Actions', `<a href="${esc(summary.workflowRunUrl)}" target="_blank" rel="noopener">${esc(t('workflowLog'))} ↗</a>`] : null,
   ].filter(Boolean);
@@ -620,6 +665,17 @@ document.addEventListener('click', async (event) => {
 
   const langButton = target.closest('[data-lang]');
   if (langButton) return setLanguage(langButton.dataset.lang);
+
+  const arenaModeBtn = target.closest('[data-arena-mode]');
+  if (arenaModeBtn) {
+    arenaMode = arenaModeBtn.dataset.arenaMode;
+    return render();
+  }
+
+  if (target.closest('[data-arena-toggle]')) {
+    arenaCollapsed = !arenaCollapsed;
+    return render();
+  }
 
   if (target.closest('#share-btn')) {
     const button = target.closest('#share-btn');

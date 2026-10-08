@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Royal Punto Banco · 8-Deck Baccarat Table</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="top-bar">
@@ -13,6 +13,10 @@
         <h1 data-test="table-title">Royal Punto Banco · 8-Deck Baccarat</h1>
       </div>
       <div class="status-cluster">
+        <div class="mode-switch" role="group" aria-label="Engine mode switch">
+          <button type="button" class="mode-btn" data-mode-select="production">PRODUCTION 標準版</button>
+          <button type="button" class="mode-btn" data-mode-select="with-bugs">WITH-BUGS 故障版</button>
+        </div>
         <span class="badge" data-test="target-mode">PRODUCTION</span>
         <span class="badge status-open" data-test="table-status">BETTING_OPEN</span>
         <div class="wallet-box">
@@ -23,6 +27,7 @@
           <span class="wallet-label">Total Wager</span>
           <strong class="wallet-amount" data-test="total-bet">$0.00</strong>
         </div>
+        <a class="dashboard-back-link" href="../" target="_top">📊 QA Dashboard</a>
       </div>
     </header>
 
@@ -100,6 +105,20 @@
         </div>
 
         <div class="message-banner" data-test="table-message" hidden></div>
+
+        <div class="qa-preset-bar">
+          <div class="qa-preset-head">
+            <span class="qa-preset-title">🧪 QA 測試牌型一鍵驗證 (Instant E2E Scenario Deals)</span>
+            <span class="qa-preset-sub">點擊下方按鈕可自動配牌發局，即時比較 PRODUCTION 與 WITH-BUGS 引擎的派彩差異</span>
+          </div>
+          <div class="qa-preset-buttons">
+            <button type="button" class="preset-btn" data-preset="natural9">👑 TC01 例牌 9 點免補牌</button>
+            <button type="button" class="preset-btn" data-preset="banker3vs8">🃏 TC04 莊3對閒8 (Bug #1 補牌陷阱)</button>
+            <button type="button" class="preset-btn" data-preset="tiePush">🤝 TC09 和局退還主注 (Bug #2 沒收主注)</button>
+            <button type="button" class="preset-btn" data-preset="commission35">💰 TC08 莊贏 $35 抽水 5% (Bug #3 小數截斷)</button>
+            <button type="button" class="preset-btn" data-preset="mixedPair">♠♥ TC10 異花色對子 1:11 (Bug #4 對子漏判)</button>
+          </div>
+        </div>
       </section>
 
       <aside class="side-panel">
@@ -127,6 +146,6 @@
       </aside>
     </main>
 
-    <script type="module" src="/table.js"></script>
+    <script type="module" src="./table.js"></script>
   </body>
 </html>

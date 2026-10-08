@@ -8,7 +8,8 @@
 
 An end-to-end **iGaming / Casino QA Automation** portfolio project built with **Playwright + TypeScript**. It tests a self-contained **Classic 8-Deck Baccarat (Punto Banco) Table & Seamless Wallet Engine** across UI workflows, REST API security, high-concurrency wallet race conditions, idempotency deduplication, and a **100,000-round Monte Carlo Return-to-Player (RTP)** statistical simulation.
 
-- **Live QA Dashboard**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
+- **Live QA Dashboard (VIP Pit Boss Command Center)**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
+- **Live Playable Baccarat Casino Table (System Under Test)**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/table/](https://ntcloudy.github.io/baccarat-e2e-dashboard/table/)
 - **Bug Detection Report (`with-bugs`)**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs)
 - **Interactive Test Console**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console)
 

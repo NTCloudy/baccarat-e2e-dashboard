@@ -8,7 +8,8 @@
 
 這是一個聚焦於 **博奕遊戲（iGaming / Live Casino）與單一錢包（Seamless Wallet）** 的端對端 QA 自動化作品集，使用 **Playwright + TypeScript** 建構。專案內建完整的 **經典 8 副牌百家樂（Punto Banco）桌台與單一錢包伺服器**，自動化驗證涵蓋補牌規則表（Tableau）、莊贏 5% 抽水美分精確度、高併發競態條件（Race Condition）防超扣、Idempotency Key 冪等防重送、關盤狀態機防偷跑，以及 **100,000 局蒙地卡羅（Monte Carlo）RTP 與機率分佈驗證**。
 
-- **線上測試儀表板（GitHub Pages）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
+- **線上 QA 監控儀表板（皇家賭場 VIP 視覺）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
+- **被測線上百家樂賭桌網站（可直接下注試玩與切換 Bug 模式）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/table/](https://ntcloudy.github.io/baccarat-e2e-dashboard/table/)
 - **博奕缺陷偵測報告（`with-bugs` 模式）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs)
 - **互動式測試控制台（直接勾選案例並觸發雲端執行）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console)
 

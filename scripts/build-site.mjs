@@ -48,6 +48,11 @@ fs.cpSync(dashboardDir, outDir, { recursive: true });
 for (const name of ['case-params', 'descriptions', 'targets', 'bug-detection']) {
   fs.copyFileSync(path.join(ROOT, 'shared', `${name}.mjs`), path.join(outDir, `${name}.js`));
 }
+// Publish the interactive Baccarat table web app under /table/ so visitors can play the SUT directly on GitHub Pages.
+const tableOutDir = path.join(outDir, 'table');
+fs.cpSync(path.join(ROOT, 'app', 'public'), tableOutDir, { recursive: true });
+fs.copyFileSync(path.join(ROOT, 'app', 'engine.mjs'), path.join(tableOutDir, 'engine.js'));
+
 // Evidence images keep their repository path (docs/bugs/…), so the same path works on the site.
 const evidence = [...knownBugs.bugs, ...(knownBugs.unlisted ?? [])].map((entry) => entry.evidence).filter(Boolean);
 for (const file of new Set(evidence)) {
