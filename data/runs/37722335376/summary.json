@@ -1,0 +1,976 @@
+{
+  "schemaVersion": 3,
+  "id": "37722335376",
+  "runNumber": 6,
+  "trigger": "manual",
+  "commit": "21d3279",
+  "repoUrl": "https://github.com/NTCloudy/baccarat-e2e-dashboard",
+  "workflowRunUrl": "https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/runs/37722335376",
+  "startedAt": "2026-10-08T03:22:08.933Z",
+  "finishedAt": "2026-10-08T03:22:58.201Z",
+  "durationMs": 49268,
+  "rounds": 3,
+  "target": "production",
+  "selection": {
+    "all": true,
+    "cases": [
+      "TC01",
+      "TC02",
+      "TC03",
+      "TC04",
+      "TC05",
+      "TC06",
+      "TC07",
+      "TC08",
+      "TC09",
+      "TC10",
+      "TC11",
+      "TC12",
+      "TC13",
+      "TC14",
+      "TC15",
+      "TC16",
+      "TC17",
+      "TC18",
+      "TC19",
+      "TC20"
+    ],
+    "catalogSize": 20,
+    "applicable": 20
+  },
+  "browser": "chromium",
+  "playwrightVersion": "1.62.1",
+  "baseURL": "http://localhost:4100",
+  "apiURL": "http://localhost:4100",
+  "totals": {
+    "passed": 60,
+    "failed": 0,
+    "skipped": 0,
+    "total": 60,
+    "passRate": 1
+  },
+  "brokenRounds": 0,
+  "roundSummaries": [
+    {
+      "round": 1,
+      "startedAt": "2026-10-08T03:22:08.933Z",
+      "durationMs": 16436,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "report": "rounds/round-1/report/index.html",
+      "error": null
+    },
+    {
+      "round": 2,
+      "startedAt": "2026-10-08T03:22:25.369Z",
+      "durationMs": 16568,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "report": "rounds/round-2/report/index.html",
+      "error": null
+    },
+    {
+      "round": 3,
+      "startedAt": "2026-10-08T03:22:41.937Z",
+      "durationMs": 16263,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "report": "rounds/round-3/report/index.html",
+      "error": null
+    }
+  ],
+  "rtpSimulation": {
+    "rounds": 100000,
+    "seed": 20261007,
+    "mode": "production",
+    "counts": {
+      "player": 44434,
+      "banker": 45838,
+      "tie": 9728,
+      "playerPair": 7523,
+      "bankerPair": 7503
+    },
+    "probabilities": {
+      "banker": 0.45838,
+      "player": 0.44434,
+      "tie": 0.09728,
+      "playerPair": 0.07523,
+      "bankerPair": 0.07503
+    },
+    "rtp": {
+      "banker": 0.991121,
+      "player": 0.9859600000000001,
+      "tie": 0.8755200000000001,
+      "playerPair": 0.90276,
+      "bankerPair": 0.90036
+    },
+    "theoretical": {
+      "probabilities": {
+        "banker": 0.458597,
+        "player": 0.446247,
+        "tie": 0.095156,
+        "playerPair": 0.074699,
+        "bankerPair": 0.074699
+      },
+      "rtp": {
+        "banker": 0.989421,
+        "player": 0.98765,
+        "tie": 0.856404,
+        "playerPair": 0.896388,
+        "bankerPair": 0.896388
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "TC01",
+      "module": "Tableau",
+      "title": "Natural 8 or 9 stands immediately",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 712,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-0b23a3460fd615cae52d"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 721,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=96518d2b05be5800562d-0b23a3460fd615cae52d"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 730,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=96518d2b05be5800562d-0b23a3460fd615cae52d"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC02",
+      "module": "Tableau",
+      "title": "Player draws on 0 to 5 and stands on 6 to 7",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 597,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-70664538deb2f699997b"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 573,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=96518d2b05be5800562d-70664538deb2f699997b"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 616,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=96518d2b05be5800562d-70664538deb2f699997b"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC03",
+      "module": "Tableau",
+      "title": "Banker draws on 0 to 5 and stands on 6 to 7 when Player stands",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 573,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-08a06f6377ed2f562256"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 621,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=96518d2b05be5800562d-08a06f6377ed2f562256"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 594,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=96518d2b05be5800562d-08a06f6377ed2f562256"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC04",
+      "module": "Tableau",
+      "title": "Banker 3 stands against Player third card 8 and draws otherwise",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 616,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-505600c635e7a0640c19"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 578,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=96518d2b05be5800562d-505600c635e7a0640c19"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 620,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=96518d2b05be5800562d-505600c635e7a0640c19"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC05",
+      "module": "Tableau",
+      "title": "Banker 4 and 5 third-card drawing boundaries",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 668,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-c1ea4f665540c0618e84"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 641,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=96518d2b05be5800562d-c1ea4f665540c0618e84"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 658,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=96518d2b05be5800562d-c1ea4f665540c0618e84"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC06",
+      "module": "Tableau",
+      "title": "Banker 6 and 7 third-card drawing boundaries",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 572,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-a1f389964a5db7475984"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 565,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=96518d2b05be5800562d-a1f389964a5db7475984"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 615,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=96518d2b05be5800562d-a1f389964a5db7475984"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC07",
+      "module": "Payout",
+      "title": "Player win pays 1 to 1 and Banker bet loses",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 613,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-8e9a0e178f1eb533944e"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 638,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=424af4c3745e2584af81-8e9a0e178f1eb533944e"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 632,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=424af4c3745e2584af81-8e9a0e178f1eb533944e"
+        }
+      ],
+      "passRate": 1,
+      "params": [
+        {
+          "key": "amount",
+          "value": 50,
+          "default": 50
+        }
+      ]
+    },
+    {
+      "id": "TC08",
+      "module": "Payout",
+      "title": "Banker win pays 1 to 0.95 with exact 5% commission",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 575,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-71987541ba96ba514e8e"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 1064,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=424af4c3745e2584af81-71987541ba96ba514e8e"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 572,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=424af4c3745e2584af81-71987541ba96ba514e8e"
+        }
+      ],
+      "passRate": 1,
+      "params": [
+        {
+          "key": "amount",
+          "value": 35,
+          "default": 35
+        }
+      ]
+    },
+    {
+      "id": "TC09",
+      "module": "Payout",
+      "title": "Tie pays 1 to 8 and pushes Player and Banker main bets",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 643,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-01c4166955c91ccaca63"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 613,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=424af4c3745e2584af81-01c4166955c91ccaca63"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 637,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=424af4c3745e2584af81-01c4166955c91ccaca63"
+        }
+      ],
+      "passRate": 1,
+      "params": [
+        {
+          "key": "tieBet",
+          "value": 20,
+          "default": 20
+        },
+        {
+          "key": "mainBet",
+          "value": 50,
+          "default": 50
+        }
+      ]
+    },
+    {
+      "id": "TC10",
+      "module": "Payout",
+      "title": "Player Pair and Banker Pair pay 1 to 11 on any suit combination",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 606,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-f2b496a38483ad317051"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 621,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=424af4c3745e2584af81-f2b496a38483ad317051"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 616,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=424af4c3745e2584af81-f2b496a38483ad317051"
+        }
+      ],
+      "passRate": 1,
+      "params": [
+        {
+          "key": "amount",
+          "value": 20,
+          "default": 20
+        }
+      ]
+    },
+    {
+      "id": "TC11",
+      "module": "Payout",
+      "title": "Combined multi-zone bets settle main and side bets independently",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 676,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-69eafb8aa368d66b2e5b"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 652,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=424af4c3745e2584af81-69eafb8aa368d66b2e5b"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 682,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=424af4c3745e2584af81-69eafb8aa368d66b2e5b"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC12",
+      "module": "Wallet",
+      "title": "Table minimum and maximum bet limits are enforced",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 637,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-f170dab5b9f4ace55392"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 574,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=44df5f5b104a39029a7f-f170dab5b9f4ace55392"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 636,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=44df5f5b104a39029a7f-f170dab5b9f4ace55392"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC13",
+      "module": "Wallet",
+      "title": "Bet exceeding available wallet balance is rejected",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 615,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-69657fa2a0720d1473a5"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 533,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=44df5f5b104a39029a7f-69657fa2a0720d1473a5"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 569,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=44df5f5b104a39029a7f-69657fa2a0720d1473a5"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC14",
+      "module": "Wallet",
+      "title": "Concurrent all-in bets prevent race-condition overdraft",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 606,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-3a590da0c479c3e15ccd"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 612,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=44df5f5b104a39029a7f-3a590da0c479c3e15ccd"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 637,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=44df5f5b104a39029a7f-3a590da0c479c3e15ccd"
+        }
+      ],
+      "passRate": 1,
+      "params": [
+        {
+          "key": "concurrency",
+          "value": 5,
+          "default": 5
+        }
+      ]
+    },
+    {
+      "id": "TC15",
+      "module": "Wallet",
+      "title": "Duplicate bet with the same idempotencyKey is deduplicated",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 590,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-c6bc9936d7e0bfedc09c"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 543,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=44df5f5b104a39029a7f-c6bc9936d7e0bfedc09c"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 607,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=44df5f5b104a39029a7f-c6bc9936d7e0bfedc09c"
+        }
+      ],
+      "passRate": 1,
+      "params": [
+        {
+          "key": "amount",
+          "value": 50,
+          "default": 50
+        }
+      ]
+    },
+    {
+      "id": "TC16",
+      "module": "Wallet",
+      "title": "Late bet after BETTING_CLOSED is rejected and ledger reconciles",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 583,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-59c8ea4c43e604009f4e"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 812,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=44df5f5b104a39029a7f-59c8ea4c43e604009f4e"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 597,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=44df5f5b104a39029a7f-59c8ea4c43e604009f4e"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC17",
+      "module": "Table & RTP",
+      "title": "Table UI chip selection, multi-zone betting, and Clear Bets refund",
+      "file": "04-table-and-rtp.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 1021,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=a2ab4fdd699b7041e839-b9834bbe749720ef6b9b"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 898,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=a2ab4fdd699b7041e839-b9834bbe749720ef6b9b"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 960,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=a2ab4fdd699b7041e839-b9834bbe749720ef6b9b"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC18",
+      "module": "Table & RTP",
+      "title": "Table UI deal updates cards, balance, Bead Road, and ledger",
+      "file": "04-table-and-rtp.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 775,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=a2ab4fdd699b7041e839-52bdd546856182230198"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 771,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=a2ab4fdd699b7041e839-52bdd546856182230198"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 768,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=a2ab4fdd699b7041e839-52bdd546856182230198"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC19",
+      "module": "Table & RTP",
+      "title": "Page reload recovers session wallet balance, Bead Road, and ledger",
+      "file": "04-table-and-rtp.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 1302,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=a2ab4fdd699b7041e839-d6f279e9ea17321a2770"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 1206,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=a2ab4fdd699b7041e839-d6f279e9ea17321a2770"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 1220,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=a2ab4fdd699b7041e839-d6f279e9ea17321a2770"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC20",
+      "module": "Table & RTP",
+      "title": "100,000-round Monte Carlo simulation matches 8-deck theoretical RTP",
+      "file": "04-table-and-rtp.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 579,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=a2ab4fdd699b7041e839-71012ea641171014129d"
+        },
+        {
+          "round": 2,
+          "status": "passed",
+          "durationMs": 625,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-2/report/index.html#?testId=a2ab4fdd699b7041e839-71012ea641171014129d"
+        },
+        {
+          "round": 3,
+          "status": "passed",
+          "durationMs": 602,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-3/report/index.html#?testId=a2ab4fdd699b7041e839-71012ea641171014129d"
+        }
+      ],
+      "passRate": 1,
+      "params": [
+        {
+          "key": "rounds",
+          "value": 100000,
+          "default": 100000
+        }
+      ]
+    }
+  ]
+}

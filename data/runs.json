@@ -1,0 +1,48 @@
+[
+  {
+    "id": "37722335376",
+    "runNumber": 6,
+    "trigger": "manual",
+    "startedAt": "2026-10-08T03:22:08.933Z",
+    "durationMs": 49268,
+    "rounds": 3,
+    "commit": "21d3279",
+    "target": "production",
+    "baseURL": "http://localhost:4100",
+    "selection": "all",
+    "totals": {
+      "passed": 60,
+      "failed": 0,
+      "skipped": 0,
+      "total": 60,
+      "passRate": 1
+    },
+    "brokenRounds": 0,
+    "caseCount": 20,
+    "catalogSize": 20,
+    "customData": false
+  },
+  {
+    "id": "37722195209",
+    "runNumber": 5,
+    "trigger": "manual",
+    "startedAt": "2026-10-08T03:20:30.121Z",
+    "durationMs": 25513,
+    "rounds": 1,
+    "commit": "21d3279",
+    "target": "with-bugs",
+    "baseURL": "http://localhost:4100",
+    "selection": "all",
+    "totals": {
+      "passed": 12,
+      "failed": 8,
+      "skipped": 0,
+      "total": 20,
+      "passRate": 0.6
+    },
+    "brokenRounds": 0,
+    "caseCount": 20,
+    "catalogSize": 20,
+    "customData": false
+  }
+]
