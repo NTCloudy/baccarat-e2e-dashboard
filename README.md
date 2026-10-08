@@ -13,6 +13,10 @@ An end-to-end **iGaming / Casino QA Automation** portfolio project built with **
 - **Bug Detection Report (`with-bugs`)**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs)
 - **Interactive Test Console**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console)
 
+> **QA Automation Portfolio Series**:
+> - 🎰 **Project #2 (This Repo — iGaming / Casino & Seamless Wallet QA)**: [`NTCloudy/baccarat-e2e-dashboard`](https://github.com/NTCloudy/baccarat-e2e-dashboard) · [Live Casino QA Dashboard](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
+> - 🛒 **Project #1 (E-Commerce Web Store E2E & 94-Bug Audit)**: [`NTCloudy/playwright-e2e-dashboard`](https://github.com/NTCloudy/playwright-e2e-dashboard) · [Live E-Commerce QA Dashboard](https://ntcloudy.github.io/playwright-e2e-dashboard/)
+
 ---
 
 ## Why This Project? (5 Core iGaming QA Pillars)

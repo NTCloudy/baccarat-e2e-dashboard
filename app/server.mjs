@@ -117,6 +117,9 @@ function serializeSession(session) {
     lastRound: session.lastRound,
     beadRoad: session.beadRoad,
     ledger: session.ledger,
+    shoeRemaining: session.shoe.length,
+    shoeTotal: 416,
+    cutCardAt: 14,
     limits: TABLE_LIMITS,
   };
 }
@@ -302,17 +305,19 @@ async function handleApi(req, res, url) {
   if (req.method === 'POST' && url.pathname === '/api/deal') {
     const dealResult = await withLock(session, async () => {
       session.tableState = 'BETTING_CLOSED';
-      let cards;
-      if (Array.isArray(body.deck) && body.deck.length >= 6) {
-        cards = body.deck.map((c) => ({ suit: c.suit, rank: String(c.rank) }));
-      } else {
-        if (session.shoe.length < 14) {
-          session.shoe = createShoe(8, session.rand);
-        }
-        cards = session.shoe;
+      if (session.shoe.length < 14) {
+        session.shoe = createShoe(8, session.rand);
       }
+      const usingCustomDeck = Array.isArray(body.deck) && body.deck.length >= 6;
+      const cards = usingCustomDeck
+        ? body.deck.map((c) => ({ suit: c.suit, rank: String(c.rank) }))
+        : session.shoe;
 
       const hand = dealBaccaratHand(cards, session.mode);
+      if (usingCustomDeck) {
+        const dealtCount = hand.playerCards.length + hand.bankerCards.length;
+        session.shoe.splice(0, dealtCount);
+      }
       const settlement = settleBets(session.betsCents, hand, session.mode);
 
       if (settlement.totalReturnCents > 0) {

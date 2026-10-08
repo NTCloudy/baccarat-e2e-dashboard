@@ -139,6 +139,11 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.wallet-amount.wallet-negative {
+  color: #f87171;
+  text-shadow: 0 0 10px rgba(248, 113, 113, 0.55);
+}
+
 .dashboard-back-link {
   padding: 6px 12px;
   border-radius: 8px;
@@ -430,6 +435,12 @@ body {
   font-weight: 600;
 }
 
+.message-banner.message-ok {
+  background: rgba(22, 163, 74, 0.25);
+  border-color: #22c55e;
+  color: #bbf7d0;
+}
+
 .qa-preset-bar {
   margin-top: 16px;
   padding: 12px 14px;
@@ -479,6 +490,17 @@ body {
 .preset-btn:hover {
   background: rgba(212, 175, 55, 0.22);
   border-color: var(--gold);
+}
+
+.preset-btn-race {
+  border-color: rgba(248, 113, 113, 0.55);
+  background: rgba(220, 38, 38, 0.16);
+  color: #fecaca;
+}
+
+.preset-btn-race:hover {
+  background: rgba(220, 38, 38, 0.28);
+  border-color: #f87171;
 }
 
 .side-panel {

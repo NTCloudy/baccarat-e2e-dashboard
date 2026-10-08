@@ -30,6 +30,12 @@ function emptyBets() {
   return { player: 0, banker: 0, tie: 0, playerPair: 0, bankerPair: 0 };
 }
 
+function withLocalLock(session, fn) {
+  const next = session.lock.then(fn, fn);
+  session.lock = next.catch(() => {});
+  return next;
+}
+
 function createLocalSession(mode = currentMode, initialBalance = 1000) {
   const rand = createPrng(20261007);
   const initialCents = Math.round(initialBalance * 100);
@@ -58,6 +64,7 @@ function createLocalSession(mode = currentMode, initialBalance = 1000) {
     txCounter: 1,
     rand,
     shoe: createShoe(8, rand),
+    lock: Promise.resolve(),
   };
 }
 
@@ -81,11 +88,14 @@ function serializeLocalSession(session) {
     lastRound: session.lastRound,
     beadRoad: session.beadRoad,
     ledger: session.ledger,
+    shoeRemaining: session.shoe.length,
+    shoeTotal: 416,
+    cutCardAt: 14,
     limits: TABLE_LIMITS,
   };
 }
 
-function handleLocalApi(path, method, body = {}) {
+async function handleLocalApi(path, method, body = {}) {
   if (!localSession) {
     localSession = createLocalSession(currentMode, 1000);
   }
@@ -103,34 +113,41 @@ function handleLocalApi(path, method, body = {}) {
     const { zone, amount } = body;
     const limit = TABLE_LIMITS[zone];
     if (!limit) throw new Error(`Unknown bet zone: ${String(zone)}`);
-    const amountCents = Math.round(Number(amount) * 100);
-    if (amountCents < limit.min * 100) {
-      throw new Error(`Bet amount $${amount} is below the minimum ($${limit.min}) for ${limit.label}`);
-    }
-    const nextZoneCents = localSession.betsCents[zone] + amountCents;
-    if (nextZoneCents > limit.max * 100) {
-      throw new Error(`Total bet $${toDollars(nextZoneCents)} exceeds the maximum ($${limit.max}) for ${limit.label}`);
-    }
-    if (localSession.balanceCents < amountCents) {
-      throw new Error('Insufficient wallet balance');
-    }
-    const beforeCents = localSession.balanceCents;
-    const afterCents = beforeCents - amountCents;
-    localSession.balanceCents = afterCents;
-    localSession.betsCents[zone] += amountCents;
-    const txId = `TX-${String(localSession.txCounter++).padStart(4, '0')}`;
-    localSession.ledger.push({
-      id: txId,
-      type: 'DEBIT',
-      description: `Bet $${toDollars(amountCents)} on ${limit.label}`,
-      beforeCents,
-      deltaCents: -amountCents,
-      afterCents,
-      beforeBalance: toDollars(beforeCents),
-      delta: -toDollars(amountCents),
-      afterBalance: toDollars(afterCents),
-    });
-    return serializeLocalSession(localSession);
+    const processBet = async () => {
+      const amountCents = Math.round(Number(amount) * 100);
+      if (amountCents < limit.min * 100) {
+        throw new Error(`Bet amount $${amount} is below the minimum ($${limit.min}) for ${limit.label}`);
+      }
+      const nextZoneCents = localSession.betsCents[zone] + amountCents;
+      if (nextZoneCents > limit.max * 100) {
+        throw new Error(`Total bet $${toDollars(nextZoneCents)} exceeds the maximum ($${limit.max}) for ${limit.label}`);
+      }
+      const beforeCents = localSession.balanceCents;
+      if (beforeCents < amountCents) {
+        throw new Error('Insufficient wallet balance');
+      }
+      // Yield 15ms to simulate async DB I/O; without mutex lock (Bug #5 in with-bugs), concurrent requests race here.
+      await new Promise((resolve) => setTimeout(resolve, 15));
+      const afterCents = localSession.balanceCents - amountCents;
+      localSession.balanceCents = afterCents;
+      localSession.betsCents[zone] += amountCents;
+      const txId = `TX-${String(localSession.txCounter++).padStart(4, '0')}`;
+      localSession.ledger.push({
+        id: txId,
+        type: 'DEBIT',
+        description: `Bet $${toDollars(amountCents)} on ${limit.label}`,
+        beforeCents,
+        deltaCents: -amountCents,
+        afterCents,
+        beforeBalance: toDollars(beforeCents),
+        delta: -toDollars(amountCents),
+        afterBalance: toDollars(afterCents),
+      });
+      return serializeLocalSession(localSession);
+    };
+    return localSession.mode === 'with-bugs'
+      ? await processBet()
+      : await withLocalLock(localSession, processBet);
   }
   if (method === 'POST' && path === '/api/bets/clear') {
     const totalRefundCents = Object.values(localSession.betsCents).reduce((a, b) => a + b, 0);
@@ -155,16 +172,18 @@ function handleLocalApi(path, method, body = {}) {
     return serializeLocalSession(localSession);
   }
   if (method === 'POST' && path === '/api/deal') {
-    let cards;
-    if (Array.isArray(body.deck) && body.deck.length >= 6) {
-      cards = body.deck.map((c) => ({ suit: c.suit, rank: String(c.rank) }));
-    } else {
-      if (localSession.shoe.length < 14) {
-        localSession.shoe = createShoe(8, localSession.rand);
-      }
-      cards = localSession.shoe;
+    if (localSession.shoe.length < 14) {
+      localSession.shoe = createShoe(8, localSession.rand);
     }
+    const usingCustomDeck = Array.isArray(body.deck) && body.deck.length >= 6;
+    const cards = usingCustomDeck
+      ? body.deck.map((c) => ({ suit: c.suit, rank: String(c.rank) }))
+      : localSession.shoe;
     const hand = dealBaccaratHand(cards, localSession.mode);
+    if (usingCustomDeck) {
+      const dealtCount = hand.playerCards.length + hand.bankerCards.length;
+      localSession.shoe.splice(0, dealtCount);
+    }
     const settlement = settleBets(localSession.betsCents, hand, localSession.mode);
     if (settlement.totalReturnCents > 0) {
       const beforeCents = localSession.balanceCents;
@@ -230,15 +249,17 @@ function formatMoney(amount) {
   })}`;
 }
 
-function showMessage(text) {
+function showMessage(text, isPositive = false) {
   const banner = document.querySelector('[data-test="table-message"]');
   if (!text) {
     banner.hidden = true;
     banner.textContent = '';
+    banner.classList.remove('message-ok');
     return;
   }
   banner.hidden = false;
   banner.textContent = text;
+  banner.classList.toggle('message-ok', isPositive);
 }
 
 function renderCards(container, cards) {
@@ -264,7 +285,15 @@ function renderState(state) {
   statusEl.textContent = state.tableState;
   statusEl.className = `badge ${state.tableState === 'BETTING_OPEN' ? 'status-open' : 'status-closed'}`;
 
-  document.querySelector('[data-test="wallet-balance"]').textContent = formatMoney(state.balance);
+  const shoeEl = document.querySelector('[data-test="shoe-counter"]');
+  if (shoeEl) {
+    shoeEl.textContent = `${state.shoeRemaining ?? 416} / ${state.shoeTotal ?? 416}`;
+  }
+
+  const walletEl = document.querySelector('[data-test="wallet-balance"]');
+  walletEl.textContent = formatMoney(state.balance);
+  walletEl.classList.toggle('wallet-negative', Number(state.balance) < 0);
+
   document.querySelector('[data-test="total-bet"]').textContent = formatMoney(state.totalBet);
 
   for (const zone of ZONES) {
@@ -484,6 +513,35 @@ document.querySelectorAll('[data-preset]').forEach((btn) => {
       await apiCall('/api/bets', 'POST', { zone: scenario.zone, amount: scenario.amount });
       const state = await apiCall('/api/deal', 'POST', { deck: scenario.deck });
       renderState(state);
+    } catch (err) {
+      showMessage(err.message);
+    }
+  });
+});
+
+document.querySelectorAll('[data-preset-race]').forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    showMessage('');
+    try {
+      await apiCall('/api/session/reset', 'POST', { balance: 200, mode: currentMode });
+      const settled = await Promise.allSettled(
+        [1, 2, 3, 4, 5].map(() => apiCall('/api/bets', 'POST', { zone: 'player', amount: 200 })),
+      );
+      const accepted = settled.filter((r) => r.status === 'fulfilled').length;
+      const rejected = settled.length - accepted;
+      const state = await apiCall('/api/state');
+      renderState(state);
+      if (state.balance < 0) {
+        showMessage(
+          `✕ [TC14 Bug #5 競態超扣重現] 錢包僅有 $200.00，同時發送 5 筆 $200 注單：因未加互斥鎖，${accepted} 筆全數闖關成功，餘額被扣成負數 ${formatMoney(state.balance)}！`,
+          false,
+        );
+      } else {
+        showMessage(
+          `✓ [TC14 PRODUCTION 互斥鎖生效] 錢包僅有 $200.00，同時發送 5 筆 $200 注單：僅 ${accepted} 筆扣款成功、${rejected} 筆因餘額不足被擋下，餘額安全維持 ${formatMoney(state.balance)}。`,
+          true,
+        );
+      }
     } catch (err) {
       showMessage(err.message);
     }

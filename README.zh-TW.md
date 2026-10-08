@@ -13,6 +13,10 @@
 - **博奕缺陷偵測報告（`with-bugs` 模式）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs)
 - **互動式測試控制台（直接勾選案例並觸發雲端執行）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console)
 
+> **QA 自動化測試雙作品集導覽**：
+> - 🎰 **作品集二（本專案 — 博奕百家樂桌台、單一錢包高併發與 10 萬局 RTP 驗證）**：[`NTCloudy/baccarat-e2e-dashboard`](https://github.com/NTCloudy/baccarat-e2e-dashboard) · [皇家賭場 QA 儀表板](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
+> - 🛒 **作品集一（電商購物網站端對端 E2E 與 94 項已知問題對照）**：[`NTCloudy/playwright-e2e-dashboard`](https://github.com/NTCloudy/playwright-e2e-dashboard) · [電商測試結果網站](https://ntcloudy.github.io/playwright-e2e-dashboard/)
+
 ---
 
 ## 為什麼選擇這個主題？（五大博奕 QA 核心驗證支柱）
