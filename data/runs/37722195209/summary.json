@@ -1,0 +1,580 @@
+{
+  "schemaVersion": 3,
+  "id": "37722195209",
+  "runNumber": 5,
+  "trigger": "manual",
+  "commit": "21d3279",
+  "repoUrl": "https://github.com/NTCloudy/baccarat-e2e-dashboard",
+  "workflowRunUrl": "https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/runs/37722195209",
+  "startedAt": "2026-10-08T03:20:30.121Z",
+  "finishedAt": "2026-10-08T03:20:55.634Z",
+  "durationMs": 25513,
+  "rounds": 1,
+  "target": "with-bugs",
+  "selection": {
+    "all": true,
+    "cases": [
+      "TC01",
+      "TC02",
+      "TC03",
+      "TC04",
+      "TC05",
+      "TC06",
+      "TC07",
+      "TC08",
+      "TC09",
+      "TC10",
+      "TC11",
+      "TC12",
+      "TC13",
+      "TC14",
+      "TC15",
+      "TC16",
+      "TC17",
+      "TC18",
+      "TC19",
+      "TC20"
+    ],
+    "catalogSize": 20,
+    "applicable": 20
+  },
+  "browser": "chromium",
+  "playwrightVersion": "1.62.1",
+  "baseURL": "http://localhost:4100",
+  "apiURL": "http://localhost:4100",
+  "totals": {
+    "passed": 12,
+    "failed": 8,
+    "skipped": 0,
+    "total": 20,
+    "passRate": 0.6
+  },
+  "brokenRounds": 0,
+  "roundSummaries": [
+    {
+      "round": 1,
+      "startedAt": "2026-10-08T03:20:30.121Z",
+      "durationMs": 25513,
+      "passed": 12,
+      "failed": 8,
+      "skipped": 0,
+      "report": "rounds/round-1/report/index.html",
+      "error": null
+    }
+  ],
+  "rtpSimulation": {
+    "rounds": 100000,
+    "seed": 20261007,
+    "mode": "with-bugs",
+    "counts": {
+      "player": 50331,
+      "banker": 40001,
+      "tie": 9668,
+      "playerPair": 1475,
+      "bankerPair": 1672
+    },
+    "probabilities": {
+      "banker": 0.40001,
+      "player": 0.50331,
+      "tie": 0.09668,
+      "playerPair": 0.01475,
+      "bankerPair": 0.01672
+    },
+    "rtp": {
+      "banker": 0.7800195,
+      "player": 1.00662,
+      "tie": 0.87012,
+      "playerPair": 0.177,
+      "bankerPair": 0.20063999999999999
+    },
+    "theoretical": {
+      "probabilities": {
+        "banker": 0.458597,
+        "player": 0.446247,
+        "tie": 0.095156,
+        "playerPair": 0.074699,
+        "bankerPair": 0.074699
+      },
+      "rtp": {
+        "banker": 0.989421,
+        "player": 0.98765,
+        "tie": 0.856404,
+        "playerPair": 0.896388,
+        "bankerPair": 0.896388
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "TC01",
+      "module": "Tableau",
+      "title": "Natural 8 or 9 stands immediately",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 713,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-0b23a3460fd615cae52d"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC02",
+      "module": "Tableau",
+      "title": "Player draws on 0 to 5 and stands on 6 to 7",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 623,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-70664538deb2f699997b"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC03",
+      "module": "Tableau",
+      "title": "Banker draws on 0 to 5 and stands on 6 to 7 when Player stands",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 617,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-08a06f6377ed2f562256"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC04",
+      "module": "Tableau",
+      "title": "Banker 3 stands against Player third card 8 and draws otherwise",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 718,
+          "error": "Error: [TC04 banker-3-vs-8] Banker on initial 3 must stand when Player draws 8 as the third card\n\nexpect(received).toHaveLength(expected)\n\nExpected length: 2\nReceived length: 3\nReceived array:  [{\"rank\": \"A\", \"suit\": \"D\"}, {\"rank\": \"2\", \"suit\": \"C\"}, {\"rank\": \"6\", \"suit\": \"H\"}]",
+          "errors": [
+            "Error: [TC04 banker-3-vs-8] Banker on initial 3 must stand when Player draws 8 as the third card\n\nexpect(received).toHaveLength(expected)\n\nExpected length: 2\nReceived length: 3\nReceived array:  [{\"rank\": \"A\", \"suit\": \"D\"}, {\"rank\": \"2\", \"suit\": \"C\"}, {\"rank\": \"6\", \"suit\": \"H\"}]\n\n  79 |         round.bankerCards,\n  80 |         '[TC04 banker-3-vs-8] Banker on initial 3 must stand when Player draws 8 as the third card',\n> 81 |       ).toHaveLength(2);\n     |         ^\n  82 |       expect(round.bankerPoints).toBe(3);\n  83 |       expect(round.outcome).toBe(' banker'.trim());\n  84 |     });\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/01-tableau.spec.ts:81:9\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/01-tableau.spec.ts:74:5"
+          ],
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": "rounds/round-1/shots/TC04.png",
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-505600c635e7a0640c19"
+        }
+      ],
+      "passRate": 0,
+      "params": []
+    },
+    {
+      "id": "TC05",
+      "module": "Tableau",
+      "title": "Banker 4 and 5 third-card drawing boundaries",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 767,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-c1ea4f665540c0618e84"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC06",
+      "module": "Tableau",
+      "title": "Banker 6 and 7 third-card drawing boundaries",
+      "file": "01-tableau.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 641,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=96518d2b05be5800562d-a1f389964a5db7475984"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC07",
+      "module": "Payout",
+      "title": "Player win pays 1 to 1 and Banker bet loses",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 645,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-8e9a0e178f1eb533944e"
+        }
+      ],
+      "passRate": 1,
+      "params": [
+        {
+          "key": "amount",
+          "value": 50,
+          "default": 50
+        }
+      ]
+    },
+    {
+      "id": "TC08",
+      "module": "Payout",
+      "title": "Banker win pays 1 to 0.95 with exact 5% commission",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 730,
+          "error": "Error: [TC08 banker-commission] Banker win on $35 must return $68.25 (1:0.95 exact cents, no floor truncation)\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 68.25\nReceived: 68",
+          "errors": [
+            "Error: [TC08 banker-commission] Banker win on $35 must return $68.25 (1:0.95 exact cents, no floor truncation)\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 68.25\nReceived: 68\n\n  37 |         res.round.settlement.totalReturn,\n  38 |         `[TC08 banker-commission] Banker win on $${amount} must return $${expectedPayout} (1:0.95 exact cents, no floor truncation)`,\n> 39 |       ).toBe(expectedPayout);\n     |         ^\n  40 |       expect(res.balance).toBe(expectedBalance);\n  41 |     });\n  42 |   });\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/02-payout.spec.ts:39:9\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/02-payout.spec.ts:33:5"
+          ],
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": "rounds/round-1/shots/TC08.png",
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-71987541ba96ba514e8e"
+        }
+      ],
+      "passRate": 0,
+      "params": [
+        {
+          "key": "amount",
+          "value": 35,
+          "default": 35
+        }
+      ]
+    },
+    {
+      "id": "TC09",
+      "module": "Payout",
+      "title": "Tie pays 1 to 8 and pushes Player and Banker main bets",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 938,
+          "error": "Error: [TC09 tie-push] On a Tie, Player ($50) and Banker ($50) main bets must push (refund) alongside the 1:8 Tie payout\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 280\nReceived: 180",
+          "errors": [
+            "Error: [TC09 tie-push] On a Tie, Player ($50) and Banker ($50) main bets must push (refund) alongside the 1:8 Tie payout\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 280\nReceived: 180\n\n  60 |         res.round.settlement.totalReturn,\n  61 |         `[TC09 tie-push] On a Tie, Player ($${mainBet}) and Banker ($${mainBet}) main bets must push (refund) alongside the 1:8 Tie payout`,\n> 62 |       ).toBe(expectedReturn);\n     |         ^\n  63 |       expect(res.balance).toBe(1000 + tieBet * 8);\n  64 |     });\n  65 |   });\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/02-payout.spec.ts:62:9\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/02-payout.spec.ts:55:5"
+          ],
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": "rounds/round-1/shots/TC09.png",
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-01c4166955c91ccaca63"
+        }
+      ],
+      "passRate": 0,
+      "params": [
+        {
+          "key": "tieBet",
+          "value": 20,
+          "default": 20
+        },
+        {
+          "key": "mainBet",
+          "value": 50,
+          "default": 50
+        }
+      ]
+    },
+    {
+      "id": "TC10",
+      "module": "Payout",
+      "title": "Player Pair and Banker Pair pay 1 to 11 on any suit combination",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 858,
+          "error": "Error: [TC10 mixed-suit-pair] Same-rank initial cards of different suits (♠K+♥K and ♦7+♣7) must count as Pairs\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false",
+          "errors": [
+            "Error: [TC10 mixed-suit-pair] Same-rank initial cards of different suits (♠K+♥K and ♦7+♣7) must count as Pairs\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\n  78 |         res.round.playerPair && res.round.bankerPair,\n  79 |         '[TC10 mixed-suit-pair] Same-rank initial cards of different suits (♠K+♥K and ♦7+♣7) must count as Pairs',\n> 80 |       ).toBe(true);\n     |         ^\n  81 |       expect(res.round.settlement.totalReturn).toBe(amount * 12 * 2);\n  82 |       expect(res.balance).toBe(1000 + amount * 11 * 2);\n  83 |     });\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/02-payout.spec.ts:80:9\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/02-payout.spec.ts:75:5"
+          ],
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": "rounds/round-1/shots/TC10.png",
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-f2b496a38483ad317051"
+        }
+      ],
+      "passRate": 0,
+      "params": [
+        {
+          "key": "amount",
+          "value": 20,
+          "default": 20
+        }
+      ]
+    },
+    {
+      "id": "TC11",
+      "module": "Payout",
+      "title": "Combined multi-zone bets settle main and side bets independently",
+      "file": "02-payout.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 884,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=424af4c3745e2584af81-69eafb8aa368d66b2e5b"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC12",
+      "module": "Wallet",
+      "title": "Table minimum and maximum bet limits are enforced",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 683,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-f170dab5b9f4ace55392"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC13",
+      "module": "Wallet",
+      "title": "Bet exceeding available wallet balance is rejected",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 612,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-69657fa2a0720d1473a5"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC14",
+      "module": "Wallet",
+      "title": "Concurrent all-in bets prevent race-condition overdraft",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 772,
+          "error": "Error: [TC14 race-condition] Concurrent all-in requests must be serialized so only 1 succeeds and balance is $0 (never negative)\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 2\n+ Received  + 2\n\n  Object {\n-   \"balance\": 0,\n-   \"succeeded\": 1,\n+   \"balance\": -800,\n+   \"succeeded\": 5,\n  }",
+          "errors": [
+            "Error: [TC14 race-condition] Concurrent all-in requests must be serialized so only 1 succeeds and balance is $0 (never negative)\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 2\n+ Received  + 2\n\n  Object {\n-   \"balance\": 0,\n-   \"succeeded\": 1,\n+   \"balance\": -800,\n+   \"succeeded\": 5,\n  }\n\n  60 |         { succeeded, balance: state.balance },\n  61 |         `[TC14 race-condition] Concurrent all-in requests must be serialized so only 1 succeeds and balance is $0 (never negative)`,\n> 62 |       ).toEqual({ succeeded: 1, balance: 0 });\n     |         ^\n  63 |     });\n  64 |   });\n  65 |\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/03-wallet.spec.ts:62:9\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/03-wallet.spec.ts:52:5"
+          ],
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": "rounds/round-1/shots/TC14.png",
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-3a590da0c479c3e15ccd"
+        }
+      ],
+      "passRate": 0,
+      "params": [
+        {
+          "key": "concurrency",
+          "value": 5,
+          "default": 5
+        }
+      ]
+    },
+    {
+      "id": "TC15",
+      "module": "Wallet",
+      "title": "Duplicate bet with the same idempotencyKey is deduplicated",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 889,
+          "error": "Error: [TC15 idempotency] Retries with the same idempotencyKey must debit $50 only once and return the original transactionId\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 3\n+ Received  + 3\n\n  Object {\n-   \"balance\": 950,\n-   \"bankerStake\": 50,\n-   \"sameTxId\": true,\n+   \"balance\": 850,\n+   \"bankerStake\": 150,\n+   \"sameTxId\": false,\n  }",
+          "errors": [
+            "Error: [TC15 idempotency] Retries with the same idempotencyKey must debit $50 only once and return the original transactionId\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 3\n+ Received  + 3\n\n  Object {\n-   \"balance\": 950,\n-   \"bankerStake\": 50,\n-   \"sameTxId\": true,\n+   \"balance\": 850,\n+   \"bankerStake\": 150,\n+   \"sameTxId\": false,\n  }\n\n  80 |         },\n  81 |         `[TC15 idempotency] Retries with the same idempotencyKey must debit $${amount} only once and return the original transactionId`,\n> 82 |       ).toEqual({\n     |         ^\n  83 |         balance: 1000 - amount,\n  84 |         bankerStake: amount,\n  85 |         sameTxId: true,\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/03-wallet.spec.ts:82:9\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/03-wallet.spec.ts:70:5"
+          ],
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": "rounds/round-1/shots/TC15.png",
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-c6bc9936d7e0bfedc09c"
+        }
+      ],
+      "passRate": 0,
+      "params": [
+        {
+          "key": "amount",
+          "value": 50,
+          "default": 50
+        }
+      ]
+    },
+    {
+      "id": "TC16",
+      "module": "Wallet",
+      "title": "Late bet after BETTING_CLOSED is rejected and ledger reconciles",
+      "file": "03-wallet.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 869,
+          "error": "Error: [TC16 late-bet] Bets sent after BETTING_CLOSED must be rejected with HTTP 409 Conflict\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 409\nReceived: 200",
+          "errors": [
+            "Error: [TC16 late-bet] Bets sent after BETTING_CLOSED must be rejected with HTTP 409 Conflict\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 409\nReceived: 200\n\n  100 |         late.status,\n  101 |         '[TC16 late-bet] Bets sent after BETTING_CLOSED must be rejected with HTTP 409 Conflict',\n> 102 |       ).toBe(409);\n      |         ^\n  103 |     });\n  104 |\n  105 |     await test.step('Every ledger transaction reconciles (beforeBalance + delta === afterBalance)', async () => {\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/03-wallet.spec.ts:102:9\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/03-wallet.spec.ts:97:5"
+          ],
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": "rounds/round-1/shots/TC16.png",
+          "reportLink": "rounds/round-1/report/index.html#?testId=44df5f5b104a39029a7f-59c8ea4c43e604009f4e"
+        }
+      ],
+      "passRate": 0,
+      "params": []
+    },
+    {
+      "id": "TC17",
+      "module": "Table & RTP",
+      "title": "Table UI chip selection, multi-zone betting, and Clear Bets refund",
+      "file": "04-table-and-rtp.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 1238,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=a2ab4fdd699b7041e839-b9834bbe749720ef6b9b"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC18",
+      "module": "Table & RTP",
+      "title": "Table UI deal updates cards, balance, Bead Road, and ledger",
+      "file": "04-table-and-rtp.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 809,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=a2ab4fdd699b7041e839-52bdd546856182230198"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC19",
+      "module": "Table & RTP",
+      "title": "Page reload recovers session wallet balance, Bead Road, and ledger",
+      "file": "04-table-and-rtp.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "passed",
+          "durationMs": 1327,
+          "error": null,
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": null,
+          "reportLink": "rounds/round-1/report/index.html#?testId=a2ab4fdd699b7041e839-d6f279e9ea17321a2770"
+        }
+      ],
+      "passRate": 1,
+      "params": []
+    },
+    {
+      "id": "TC20",
+      "module": "Table & RTP",
+      "title": "100,000-round Monte Carlo simulation matches 8-deck theoretical RTP",
+      "file": "04-table-and-rtp.spec.ts",
+      "results": [
+        {
+          "round": 1,
+          "status": "failed",
+          "durationMs": 762,
+          "error": "Error: [TC20 rtp-simulation] Observed RTP (Player 100.66%, Banker 78.00%) must stay within 1.5% of 8-deck theoretical RTP (Player 98.76%, Banker 98.94%)\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 2\n+ Received  + 2\n\n  Object {\n-   \"bankerWithinTolerance\": true,\n-   \"playerWithinTolerance\": true,\n+   \"bankerWithinTolerance\": false,\n+   \"playerWithinTolerance\": false,\n    \"tieWithinTolerance\": true,\n  }",
+          "errors": [
+            "Error: [TC20 rtp-simulation] Observed RTP (Player 100.66%, Banker 78.00%) must stay within 1.5% of 8-deck theoretical RTP (Player 98.76%, Banker 98.94%)\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 2\n+ Received  + 2\n\n  Object {\n-   \"bankerWithinTolerance\": true,\n-   \"playerWithinTolerance\": true,\n+   \"bankerWithinTolerance\": false,\n+   \"playerWithinTolerance\": false,\n    \"tieWithinTolerance\": true,\n  }\n\n   96 |         },\n   97 |         `[TC20 rtp-simulation] Observed RTP (Player ${(report.rtp.player * 100).toFixed(2)}%, Banker ${(report.rtp.banker * 100).toFixed(2)}%) must stay within 1.5% of 8-deck theoretical RTP (Player 98.76%, Banker 98.94%)`,\n>  98 |       ).toEqual({\n      |         ^\n   99 |         playerWithinTolerance: true,\n  100 |         bankerWithinTolerance: true,\n  101 |         tieWithinTolerance: true,\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/04-table-and-rtp.spec.ts:98:9\n    at /home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests/04-table-and-rtp.spec.ts:84:5"
+          ],
+          "skipReason": null,
+          "blocked": false,
+          "screenshot": "rounds/round-1/shots/TC20.png",
+          "reportLink": "rounds/round-1/report/index.html#?testId=a2ab4fdd699b7041e839-71012ea641171014129d"
+        }
+      ],
+      "passRate": 0,
+      "params": [
+        {
+          "key": "rounds",
+          "value": 100000,
+          "default": 100000
+        }
+      ]
+    }
+  ]
+}

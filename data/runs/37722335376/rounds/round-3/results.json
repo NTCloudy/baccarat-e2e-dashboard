@@ -1,0 +1,1154 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "/home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/playwright.config.ts",
+    "rootDir": "/home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/NTCloudy/baccarat-e2e-dashboard/commit/21d3279554ed36c71f19682c17f541aff5465349",
+        "commitHash": "21d3279554ed36c71f19682c17f541aff5465349",
+        "buildHref": "https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/runs/37722335376"
+      },
+      "gitCommit": {
+        "shortHash": "21d3279",
+        "hash": "21d3279554ed36c71f19682c17f541aff5465349",
+        "subject": "feat(table,docs): add 8-deck shoe counter, TC14 concurrency race sandbox button, cross-link READMEs, and refresh luxury UI bug screenshots",
+        "body": "feat(table,docs): add 8-deck shoe counter, TC14 concurrency race sandbox button, cross-link READMEs, and refresh luxury UI bug screenshots\n",
+        "author": {
+          "name": "NTCloudy",
+          "email": "210337045+NTCloudy@users.noreply.github.com",
+          "time": 1791429518000
+        },
+        "committer": {
+          "name": "NTCloudy",
+          "email": "210337045+NTCloudy@users.noreply.github.com",
+          "time": 1791429518000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/test-output/run/rounds/round-3/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/NTCloudy/baccarat-e2e-dashboard/commit/21d3279554ed36c71f19682c17f541aff5465349",
+            "commitHash": "21d3279554ed36c71f19682c17f541aff5465349",
+            "buildHref": "https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/runs/37722335376"
+          },
+          "gitCommit": {
+            "shortHash": "21d3279",
+            "hash": "21d3279554ed36c71f19682c17f541aff5465349",
+            "subject": "feat(table,docs): add 8-deck shoe counter, TC14 concurrency race sandbox button, cross-link READMEs, and refresh luxury UI bug screenshots",
+            "body": "feat(table,docs): add 8-deck shoe counter, TC14 concurrency race sandbox button, cross-link READMEs, and refresh luxury UI bug screenshots\n",
+            "author": {
+              "name": "NTCloudy",
+              "email": "210337045+NTCloudy@users.noreply.github.com",
+              "time": 1791429518000
+            },
+            "committer": {
+              "name": "NTCloudy",
+              "email": "210337045+NTCloudy@users.noreply.github.com",
+              "time": 1791429518000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/test-output/run/rounds/round-3/results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "/home/runner/work/baccarat-e2e-dashboard/baccarat-e2e-dashboard/test-output/run/rounds/round-3/report",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node app/server.mjs",
+      "url": "http://localhost:4100/api/state",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "01-tableau.spec.ts",
+      "file": "01-tableau.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tableau",
+          "file": "01-tableau.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC01 Natural 8 or 9 stands immediately",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 730,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Player Natural 9 (♠5 + ♥4) vs Banker 4 (♦2 + ♣2): neither side draws a 3rd card",
+                          "duration": 41
+                        },
+                        {
+                          "title": "Banker Natural 8 (♦5 + ♣3) vs Player 5 (♠2 + ♥3): neither side draws a 3rd card",
+                          "duration": 27
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:44.089Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "96518d2b05be5800562d-0b23a3460fd615cae52d",
+              "file": "01-tableau.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "TC02 Player draws on 0 to 5 and stands on 6 to 7",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 616,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Player initial 5 (♠2 + ♥3) vs Banker 7 (♦4 + ♣3): Player draws a 3rd card",
+                          "duration": 29
+                        },
+                        {
+                          "title": "Player initial 6 (♠3 + ♥3) vs Banker 7 (♦4 + ♣3): Player stands on 6",
+                          "duration": 28
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:44.939Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "96518d2b05be5800562d-70664538deb2f699997b",
+              "file": "01-tableau.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "TC03 Banker draws on 0 to 5 and stands on 6 to 7 when Player stands",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 594,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Player stands on 6 (♠3 + ♥3), Banker initial 5 (♦2 + ♣3): Banker draws a 3rd card",
+                          "duration": 23
+                        },
+                        {
+                          "title": "Player stands on 7 (♠4 + ♥3), Banker initial 6 (♦3 + ♣3): Banker stands on 6",
+                          "duration": 34
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:45.570Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "96518d2b05be5800562d-08a06f6377ed2f562256",
+              "file": "01-tableau.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "TC04 Banker 3 stands against Player third card 8 and draws otherwise",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 620,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Banker 3 (♦A + ♣2) vs Player 3rd card 7: Banker draws a 3rd card",
+                          "duration": 24
+                        },
+                        {
+                          "title": "Banker 3 (♦A + ♣2) vs Player 3rd card 8: Banker must stand at 2 cards",
+                          "duration": 46
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:46.182Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "96518d2b05be5800562d-505600c635e7a0640c19",
+              "file": "01-tableau.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "TC05 Banker 4 and 5 third-card drawing boundaries",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 658,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Banker 4 stands when Player 3rd card is 1 or 8, and draws when Player 3rd card is 2..7",
+                          "duration": 83
+                        },
+                        {
+                          "title": "Banker 5 stands when Player 3rd card is 3 or 8, and draws when Player 3rd card is 4..7",
+                          "duration": 68
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:46.817Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "96518d2b05be5800562d-c1ea4f665540c0618e84",
+              "file": "01-tableau.spec.ts",
+              "line": 87,
+              "column": 7
+            },
+            {
+              "title": "TC06 Banker 6 and 7 third-card drawing boundaries",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 615,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Banker 6 stands on Player 3rd card 5 and draws only on 6 or 7",
+                          "duration": 46
+                        },
+                        {
+                          "title": "Banker 7 always stands regardless of Player 3rd card",
+                          "duration": 34
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:47.489Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "96518d2b05be5800562d-a1f389964a5db7475984",
+              "file": "01-tableau.spec.ts",
+              "line": 112,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "02-payout.spec.ts",
+      "file": "02-payout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Payout",
+          "file": "02-payout.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC07 Player win pays 1 to 1 and Banker bet loses",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test data",
+                      "description": "amount = 50 (default)"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 632,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Place $50 on Player and $20 on Banker",
+                          "duration": 65
+                        },
+                        {
+                          "title": "Deal Player Natural 9 vs Banker 4: Player pays 2x stake, Banker loses",
+                          "duration": 30
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:48.135Z",
+                      "annotations": [
+                        {
+                          "type": "test data",
+                          "description": "amount = 50 (default)"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "424af4c3745e2584af81-8e9a0e178f1eb533944e",
+              "file": "02-payout.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "TC08 Banker win pays 1 to 0.95 with exact 5% commission",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test data",
+                      "description": "amount = 35 (default)"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 572,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Place $35 on Banker",
+                          "duration": 32
+                        },
+                        {
+                          "title": "Deal Banker Natural 9: payout must be exact $68.25 (5% commission to the cent)",
+                          "duration": 18
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:48.780Z",
+                      "annotations": [
+                        {
+                          "type": "test data",
+                          "description": "amount = 35 (default)"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "424af4c3745e2584af81-71987541ba96ba514e8e",
+              "file": "02-payout.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "TC09 Tie pays 1 to 8 and pushes Player and Banker main bets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test data",
+                      "description": "tieBet = 20 (default); mainBet = 50 (default)"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 637,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Place $20 on Tie, $50 on Player, and $50 on Banker",
+                          "duration": 109
+                        },
+                        {
+                          "title": "Deal 8-8 Tie: Tie pays 9x stake and both Player and Banker main bets push (refund)",
+                          "duration": 27
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:49.365Z",
+                      "annotations": [
+                        {
+                          "type": "test data",
+                          "description": "tieBet = 20 (default); mainBet = 50 (default)"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "424af4c3745e2584af81-01c4166955c91ccaca63",
+              "file": "02-payout.spec.ts",
+              "line": 44,
+              "column": 7
+            },
+            {
+              "title": "TC10 Player Pair and Banker Pair pay 1 to 11 on any suit combination",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test data",
+                      "description": "amount = 20 (default)"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 616,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Place $20 on Player Pair and $20 on Banker Pair",
+                          "duration": 62
+                        },
+                        {
+                          "title": "Deal mixed-suit pairs (Player ♠K+♥K, Banker ♦7+♣7): both Pair side-bets must win 1:11",
+                          "duration": 36
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:50.016Z",
+                      "annotations": [
+                        {
+                          "type": "test data",
+                          "description": "amount = 20 (default)"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "424af4c3745e2584af81-f2b496a38483ad317051",
+              "file": "02-payout.spec.ts",
+              "line": 67,
+              "column": 7
+            },
+            {
+              "title": "TC11 Combined multi-zone bets settle main and side bets independently",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 682,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Place wagers across all 5 bet zones ($100 Player, $100 Banker, $20 Tie, $25 Player Pair, $25 Banker Pair)",
+                          "duration": 160
+                        },
+                        {
+                          "title": "Deal Player Pair (♠4+♠4 = 8 Natural) vs Banker (♦5+♣2 = 7): Player (1:1) and Player Pair (1:11) win",
+                          "duration": 21
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:50.646Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "424af4c3745e2584af81-69eafb8aa368d66b2e5b",
+              "file": "02-payout.spec.ts",
+              "line": 86,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "03-wallet.spec.ts",
+      "file": "03-wallet.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Wallet",
+          "file": "03-wallet.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC12 Table minimum and maximum bet limits are enforced",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 636,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Below minimum ($5 < $10 min) is rejected with BELOW_MIN_BET",
+                          "duration": 13
+                        },
+                        {
+                          "title": "Main zone bet above $5,000 maximum is rejected with ABOVE_MAX_BET",
+                          "duration": 39
+                        },
+                        {
+                          "title": "Side zone cumulative bet above $1,000 maximum is rejected without debiting",
+                          "duration": 73
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:51.345Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44df5f5b104a39029a7f-f170dab5b9f4ace55392",
+              "file": "03-wallet.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "TC13 Bet exceeding available wallet balance is rejected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 569,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Reset wallet to $150 and attempt a $200 bet",
+                          "duration": 43
+                        },
+                        {
+                          "title": "Wallet balance remains $150 and no DEBIT entry was added",
+                          "duration": 7
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:51.992Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44df5f5b104a39029a7f-69657fa2a0720d1473a5",
+              "file": "03-wallet.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "TC14 Concurrent all-in bets prevent race-condition overdraft",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test data",
+                      "description": "concurrency = 5 (default)"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 637,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Reset wallet balance to $200 (enough for exactly one $200 bet)",
+                          "duration": 18
+                        },
+                        {
+                          "title": "Fire 5 simultaneous $200 bets via Promise.all: only 1 may succeed",
+                          "duration": 68
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:52.575Z",
+                      "annotations": [
+                        {
+                          "type": "test data",
+                          "description": "concurrency = 5 (default)"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44df5f5b104a39029a7f-3a590da0c479c3e15ccd",
+              "file": "03-wallet.spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "TC15 Duplicate bet with the same idempotencyKey is deduplicated",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test data",
+                      "description": "amount = 50 (default)"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 607,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Send 3 bet requests of $50 with idempotencyKey \"idem-1791429773448\"",
+                          "duration": 70
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:53.224Z",
+                      "annotations": [
+                        {
+                          "type": "test data",
+                          "description": "amount = 50 (default)"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44df5f5b104a39029a7f-c6bc9936d7e0bfedc09c",
+              "file": "03-wallet.spec.ts",
+              "line": 66,
+              "column": 7
+            },
+            {
+              "title": "TC16 Late bet after BETTING_CLOSED is rejected and ledger reconciles",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 597,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Place a valid $100 bet while BETTING_OPEN, then close betting",
+                          "duration": 49
+                        },
+                        {
+                          "title": "Attempt to place a $50 bet while BETTING_CLOSED: must be rejected with HTTP 409",
+                          "duration": 20
+                        },
+                        {
+                          "title": "Every ledger transaction reconciles (beforeBalance + delta === afterBalance)",
+                          "duration": 7
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:53.848Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44df5f5b104a39029a7f-59c8ea4c43e604009f4e",
+              "file": "03-wallet.spec.ts",
+              "line": 90,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "04-table-and-rtp.spec.ts",
+      "file": "04-table-and-rtp.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Table & RTP",
+          "file": "04-table-and-rtp.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC17 Table UI chip selection, multi-zone betting, and Clear Bets refund",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 960,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Open the Baccarat table UI and select the $100 chip",
+                          "duration": 257
+                        },
+                        {
+                          "title": "Click Player and Tie bet zones; select $25 chip and click Banker Pair",
+                          "duration": 287
+                        },
+                        {
+                          "title": "Click Clear Bets: all active stakes reset to $0.00 and wallet returns to $1,000.00",
+                          "duration": 84
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:54.463Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a2ab4fdd699b7041e839-b9834bbe749720ef6b9b",
+              "file": "04-table-and-rtp.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "TC18 Table UI deal updates cards, balance, Bead Road, and ledger",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 768,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Open table UI, select $100 chip, and bet on Player",
+                          "duration": 309
+                        },
+                        {
+                          "title": "Deal a Player Natural 9 (♠5+♥4 vs ♦3+♣3): UI shows cards, points, Bead Road, and $1,100.00 balance",
+                          "duration": 125
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:55.433Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a2ab4fdd699b7041e839-52bdd546856182230198",
+              "file": "04-table-and-rtp.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "TC19 Page reload recovers session wallet balance, Bead Road, and ledger",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1220,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Complete one round and place a new $50 bet on Banker for round #2",
+                          "duration": 720
+                        },
+                        {
+                          "title": "Reload the page: wallet balance ($1,050.00), active Banker bet ($50.00), Bead Road, and ledger persist",
+                          "duration": 152
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:56.213Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a2ab4fdd699b7041e839-d6f279e9ea17321a2770",
+              "file": "04-table-and-rtp.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "TC20 100,000-round Monte Carlo simulation matches 8-deck theoretical RTP",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "test data",
+                      "description": "rounds = 100000 (default)"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 602,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Simulate 100,000 hands from 8-deck shoes and verify win probabilities and RTP",
+                          "duration": 135
+                        }
+                      ],
+                      "startTime": "2026-10-08T03:22:57.445Z",
+                      "annotations": [
+                        {
+                          "type": "test data",
+                          "description": "rounds = 100000 (default)"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a2ab4fdd699b7041e839-71012ea641171014129d",
+              "file": "04-table-and-rtp.spec.ts",
+              "line": 81,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-08T03:22:42.703Z",
+    "duration": 15433.043,
+    "expected": 20,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
