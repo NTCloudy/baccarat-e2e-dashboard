@@ -1,21 +1,21 @@
 # 百家樂桌台與單一錢包 QA 自動化測試儀表板
 
-[![E2E tests](https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/workflows/e2e.yml/badge.svg)](https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/workflows/e2e.yml)
-[![CI](https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/workflows/ci.yml)
-[![Live Dashboard](https://img.shields.io/badge/GitHub%20Pages-Live%20Dashboard-0d5c3a?logo=github)](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
+[![E2E tests](https://github.com/robinhood126937/baccarat-e2e-dashboard/actions/workflows/e2e.yml/badge.svg)](https://github.com/robinhood126937/baccarat-e2e-dashboard/actions/workflows/e2e.yml)
+[![CI](https://github.com/robinhood126937/baccarat-e2e-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/robinhood126937/baccarat-e2e-dashboard/actions/workflows/ci.yml)
+[![Live Dashboard](https://img.shields.io/badge/GitHub%20Pages-Live%20Dashboard-0d5c3a?logo=github)](https://robinhood126937.github.io/baccarat-e2e-dashboard/)
 
 [English](./README.md) | **繁體中文**
 
 這是一個聚焦於 **博奕遊戲（iGaming / Live Casino）與單一錢包（Seamless Wallet）** 的端對端 QA 自動化作品集，使用 **Playwright + TypeScript** 建構。專案內建完整的 **經典 8 副牌百家樂（Punto Banco）桌台與單一錢包伺服器**，自動化驗證涵蓋補牌規則表（Tableau）、莊贏 5% 抽水美分精確度、高併發競態條件（Race Condition）防超扣、Idempotency Key 冪等防重送、關盤狀態機防偷跑，以及 **100,000 局蒙地卡羅（Monte Carlo）RTP 與機率分佈驗證**。
 
-- **線上 QA 監控儀表板（皇家賭場 VIP 視覺）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
-- **被測線上百家樂賭桌網站（可直接下注試玩與切換 Bug 模式）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/table/](https://ntcloudy.github.io/baccarat-e2e-dashboard/table/)
-- **博奕缺陷偵測報告（`with-bugs` 模式）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs)
-- **互動式測試控制台（直接勾選案例並觸發雲端執行）**：[https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console)
+- **線上 QA 監控儀表板（皇家賭場 VIP 視覺）**：[https://robinhood126937.github.io/baccarat-e2e-dashboard/](https://robinhood126937.github.io/baccarat-e2e-dashboard/)
+- **被測線上百家樂賭桌網站（可直接下注試玩與切換 Bug 模式）**：[https://robinhood126937.github.io/baccarat-e2e-dashboard/table/](https://robinhood126937.github.io/baccarat-e2e-dashboard/table/)
+- **博奕缺陷偵測報告（`with-bugs` 模式）**：[https://robinhood126937.github.io/baccarat-e2e-dashboard/#/bugs](https://robinhood126937.github.io/baccarat-e2e-dashboard/#/bugs)
+- **互動式測試控制台（直接勾選案例並觸發雲端執行）**：[https://robinhood126937.github.io/baccarat-e2e-dashboard/#/console](https://robinhood126937.github.io/baccarat-e2e-dashboard/#/console)
 
 > **QA 自動化測試雙作品集導覽**：
-> - 🎰 **作品集二（本專案 — 博奕百家樂桌台、單一錢包高併發與 10 萬局 RTP 驗證）**：[`NTCloudy/baccarat-e2e-dashboard`](https://github.com/NTCloudy/baccarat-e2e-dashboard) · [皇家賭場 QA 儀表板](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
-> - 🛒 **作品集一（電商購物網站端對端 E2E 與 94 項已知問題對照）**：[`NTCloudy/playwright-e2e-dashboard`](https://github.com/NTCloudy/playwright-e2e-dashboard) · [電商測試結果網站](https://ntcloudy.github.io/playwright-e2e-dashboard/)
+> - 🎰 **作品集二（本專案 — 博奕百家樂桌台、單一錢包高併發與 10 萬局 RTP 驗證）**：[`robinhood126937/baccarat-e2e-dashboard`](https://github.com/robinhood126937/baccarat-e2e-dashboard) · [皇家賭場 QA 儀表板](https://robinhood126937.github.io/baccarat-e2e-dashboard/)
+> - 🛒 **作品集一（電商購物網站端對端 E2E 與 94 項已知問題對照）**：[`robinhood126937/playwright-e2e-dashboard`](https://github.com/robinhood126937/playwright-e2e-dashboard) · [電商測試結果網站](https://robinhood126937.github.io/playwright-e2e-dashboard/)
 
 ---
 
@@ -59,14 +59,14 @@
 
 | 編號 | 嚴重度 | 偵測案例 | 植入之博奕缺陷說明 | Issue 與證據截圖 |
 | :--- | :---: | :---: | :--- | :---: |
-| **#1** | 高 | `TC04` | **補牌規則錯誤**：莊家起手 `3` 點且閒家第三張牌為 `8` 時，莊家未停牌而誤補第三張牌 | [Issue #1](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/1) · [截圖](./docs/bugs/bug-1.png) |
-| **#2** | 高 | `TC09` | **和局結算錯誤**：開出和局（Tie）時雖派發和局彩金，卻未退還（Push）莊、閒主注本金，直接當輸局沒收 | [Issue #2](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/2) · [截圖](./docs/bugs/bug-2.png) |
-| **#3** | 高 | `TC08` | **莊贏 5% 抽水精度截斷**：`1:0.95` 派彩使用 `Math.floor` 無條件捨去小數點，下注 `$35` 莊贏少發 `$0.25`（僅退 `$68.00` 而非 `$68.25`） | [Issue #3](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/3) · [截圖](./docs/bugs/bug-3.png) |
-| **#4** | 中 | `TC10` | **對子邊注花色誤判**：首兩張同點數但不同花色（如 `♠K` + `♥K`）時漏判對子未予派彩 | [Issue #4](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/4) · [截圖](./docs/bugs/bug-4.png) |
-| **#5** | 高 | `TC14` | **高併發錢包競態漏洞**：同時發送 5 筆 `$200` 梭哈請求時未加互斥鎖，5 筆全部扣款成功導致餘額變成 `-$800.00` | [Issue #5](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/5) · [截圖](./docs/bugs/bug-5.png) |
-| **#6** | 高 | `TC15` | **冪等性防重送失效**：網路重試送出相同 `idempotencyKey` 的注單時未去重，導致重複扣款 3 次 | [Issue #6](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/6) · [截圖](./docs/bugs/bug-6.png) |
-| **#7** | 高 | `TC16` | **關盤後遲到注單闖關**：桌台已進入 `BETTING_CLOSED`，直接呼叫 `POST /api/bets` 仍可成功塞單 | [Issue #7](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/7) · [截圖](./docs/bugs/bug-7.png) |
-| **#8** | 高 | `TC20` | **牌靴發牌權重偏差**：每 8 局強制發給閒家天牌 9，導致 100,000 局實測閒家 RTP 飆破 `110%` | [Issue #8](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/8) · [截圖](./docs/bugs/bug-8.png) |
+| **#1** | 高 | `TC04` | **補牌規則錯誤**：莊家起手 `3` 點且閒家第三張牌為 `8` 時，莊家未停牌而誤補第三張牌 | [Issue #1](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/1) · [截圖](./docs/bugs/bug-1.png) |
+| **#2** | 高 | `TC09` | **和局結算錯誤**：開出和局（Tie）時雖派發和局彩金，卻未退還（Push）莊、閒主注本金，直接當輸局沒收 | [Issue #2](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/2) · [截圖](./docs/bugs/bug-2.png) |
+| **#3** | 高 | `TC08` | **莊贏 5% 抽水精度截斷**：`1:0.95` 派彩使用 `Math.floor` 無條件捨去小數點，下注 `$35` 莊贏少發 `$0.25`（僅退 `$68.00` 而非 `$68.25`） | [Issue #3](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/3) · [截圖](./docs/bugs/bug-3.png) |
+| **#4** | 中 | `TC10` | **對子邊注花色誤判**：首兩張同點數但不同花色（如 `♠K` + `♥K`）時漏判對子未予派彩 | [Issue #4](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/4) · [截圖](./docs/bugs/bug-4.png) |
+| **#5** | 高 | `TC14` | **高併發錢包競態漏洞**：同時發送 5 筆 `$200` 梭哈請求時未加互斥鎖，5 筆全部扣款成功導致餘額變成 `-$800.00` | [Issue #5](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/5) · [截圖](./docs/bugs/bug-5.png) |
+| **#6** | 高 | `TC15` | **冪等性防重送失效**：網路重試送出相同 `idempotencyKey` 的注單時未去重，導致重複扣款 3 次 | [Issue #6](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/6) · [截圖](./docs/bugs/bug-6.png) |
+| **#7** | 高 | `TC16` | **關盤後遲到注單闖關**：桌台已進入 `BETTING_CLOSED`，直接呼叫 `POST /api/bets` 仍可成功塞單 | [Issue #7](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/7) · [截圖](./docs/bugs/bug-7.png) |
+| **#8** | 高 | `TC20` | **牌靴發牌權重偏差**：每 8 局強制發給閒家天牌 9，導致 100,000 局實測閒家 RTP 飆破 `110%` | [Issue #8](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/8) · [截圖](./docs/bugs/bug-8.png) |
 
 ---
 

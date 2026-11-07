@@ -3,7 +3,7 @@ import { expect, type BrowserContext, type Request, type Route } from '@playwrig
 import { siteCatalog, type Descriptions } from './site';
 
 /** The repository the dashboard works with (dashboard/core.js). */
-export const REPO = { owner: 'NTCloudy', name: 'baccarat-e2e-dashboard', branch: 'main' } as const;
+export const REPO = { owner: 'robinhood126937', name: 'baccarat-e2e-dashboard', branch: 'main' } as const;
 export const REPO_URL = `https://github.com/${REPO.owner}/${REPO.name}`;
 
 const API = 'https://api.github.com';
@@ -94,7 +94,7 @@ const ENDPOINTS: { endpoint: Endpoint; method: string; path: RegExp }[] = [
 export interface ApiCall {
   endpoint: Endpoint | 'unknown';
   method: string;
-  /** Path without the query, e.g. "/repos/NTCloudy/playwright-e2e-dashboard/actions/runs/1". */
+  /** Path without the query, e.g. "/repos/robinhood126937/playwright-e2e-dashboard/actions/runs/1". */
   path: string;
   query: Record<string, string>;
   /** Request headers, lower-case names. */

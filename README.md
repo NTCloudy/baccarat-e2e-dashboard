@@ -1,21 +1,21 @@
 # Baccarat & Seamless Wallet QA Automation Dashboard
 
-[![E2E tests](https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/workflows/e2e.yml/badge.svg)](https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/workflows/e2e.yml)
-[![CI](https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/NTCloudy/baccarat-e2e-dashboard/actions/workflows/ci.yml)
-[![Live Dashboard](https://img.shields.io/badge/GitHub%20Pages-Live%20Dashboard-0d5c3a?logo=github)](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
+[![E2E tests](https://github.com/robinhood126937/baccarat-e2e-dashboard/actions/workflows/e2e.yml/badge.svg)](https://github.com/robinhood126937/baccarat-e2e-dashboard/actions/workflows/e2e.yml)
+[![CI](https://github.com/robinhood126937/baccarat-e2e-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/robinhood126937/baccarat-e2e-dashboard/actions/workflows/ci.yml)
+[![Live Dashboard](https://img.shields.io/badge/GitHub%20Pages-Live%20Dashboard-0d5c3a?logo=github)](https://robinhood126937.github.io/baccarat-e2e-dashboard/)
 
 **English** | [繁體中文](./README.zh-TW.md)
 
 An end-to-end **iGaming / Casino QA Automation** portfolio project built with **Playwright + TypeScript**. It tests a self-contained **Classic 8-Deck Baccarat (Punto Banco) Table & Seamless Wallet Engine** across UI workflows, REST API security, high-concurrency wallet race conditions, idempotency deduplication, and a **100,000-round Monte Carlo Return-to-Player (RTP)** statistical simulation.
 
-- **Live QA Dashboard (VIP Pit Boss Command Center)**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
-- **Live Playable Baccarat Casino Table (System Under Test)**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/table/](https://ntcloudy.github.io/baccarat-e2e-dashboard/table/)
-- **Bug Detection Report (`with-bugs`)**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/bugs)
-- **Interactive Test Console**: [https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console](https://ntcloudy.github.io/baccarat-e2e-dashboard/#/console)
+- **Live QA Dashboard (VIP Pit Boss Command Center)**: [https://robinhood126937.github.io/baccarat-e2e-dashboard/](https://robinhood126937.github.io/baccarat-e2e-dashboard/)
+- **Live Playable Baccarat Casino Table (System Under Test)**: [https://robinhood126937.github.io/baccarat-e2e-dashboard/table/](https://robinhood126937.github.io/baccarat-e2e-dashboard/table/)
+- **Bug Detection Report (`with-bugs`)**: [https://robinhood126937.github.io/baccarat-e2e-dashboard/#/bugs](https://robinhood126937.github.io/baccarat-e2e-dashboard/#/bugs)
+- **Interactive Test Console**: [https://robinhood126937.github.io/baccarat-e2e-dashboard/#/console](https://robinhood126937.github.io/baccarat-e2e-dashboard/#/console)
 
 > **QA Automation Portfolio Series**:
-> - 🎰 **Project #2 (This Repo — iGaming / Casino & Seamless Wallet QA)**: [`NTCloudy/baccarat-e2e-dashboard`](https://github.com/NTCloudy/baccarat-e2e-dashboard) · [Live Casino QA Dashboard](https://ntcloudy.github.io/baccarat-e2e-dashboard/)
-> - 🛒 **Project #1 (E-Commerce Web Store E2E & 94-Bug Audit)**: [`NTCloudy/playwright-e2e-dashboard`](https://github.com/NTCloudy/playwright-e2e-dashboard) · [Live E-Commerce QA Dashboard](https://ntcloudy.github.io/playwright-e2e-dashboard/)
+> - 🎰 **Project #2 (This Repo — iGaming / Casino & Seamless Wallet QA)**: [`robinhood126937/baccarat-e2e-dashboard`](https://github.com/robinhood126937/baccarat-e2e-dashboard) · [Live Casino QA Dashboard](https://robinhood126937.github.io/baccarat-e2e-dashboard/)
+> - 🛒 **Project #1 (E-Commerce Web Store E2E & 94-Bug Audit)**: [`robinhood126937/playwright-e2e-dashboard`](https://github.com/robinhood126937/playwright-e2e-dashboard) · [Live E-Commerce QA Dashboard](https://robinhood126937.github.io/playwright-e2e-dashboard/)
 
 ---
 
@@ -59,14 +59,14 @@ The built-in game and wallet server supports two modes via `TARGET`:
 
 | Bug | Severity | Detected By | Defect Summary | Issue & Evidence |
 | :--- | :---: | :---: | :--- | :---: |
-| **#1** | High | `TC04` | **Third-card tableau bug**: Banker on initial `3` erroneously draws a third card when Player's third card is `8` | [Issue #1](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/1) · [Screenshot](./docs/bugs/bug-1.png) |
-| **#2** | High | `TC09` | **Tie settlement bug**: Tie outcome pays `1:8` on Tie but forfeits Player and Banker main bets instead of pushing | [Issue #2](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/2) · [Screenshot](./docs/bugs/bug-2.png) |
-| **#3** | High | `TC08` | **Banker 5% commission bug**: `1:0.95` payout uses `Math.floor` on dollars, truncating `$0.25` on a `$35` Banker win (`$68.00` instead of `$68.25`) | [Issue #3](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/3) · [Screenshot](./docs/bugs/bug-3.png) |
-| **#4** | Medium | `TC10` | **Pair side-bet bug**: Pair check requires identical suit in addition to identical rank, failing to pay mixed-suit pairs (`♠K` + `♥K`) | [Issue #4](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/4) · [Screenshot](./docs/bugs/bug-4.png) |
-| **#5** | High | `TC14` | **Wallet race condition**: Concurrent bets bypass per-session mutex locking, allowing 5 simultaneous `$200` bets on a `$200` balance to overdraw to `-$800.00` | [Issue #5](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/5) · [Screenshot](./docs/bugs/bug-5.png) |
-| **#6** | High | `TC15` | **Idempotency failure**: Duplicate bet retries with the same `idempotencyKey` are not deduplicated and debit the wallet 3 times | [Issue #6](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/6) · [Screenshot](./docs/bugs/bug-6.png) |
-| **#7** | High | `TC16` | **Late-bet vulnerability**: `POST /api/bets` accepts wagers even after `tableState` transitions to `BETTING_CLOSED` | [Issue #7](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/7) · [Screenshot](./docs/bugs/bug-7.png) |
-| **#8** | High | `TC20` | **Biased shoe RNG**: Shoe deals excess Player Natural 9 hands every 8th round, skewing 100k-round Player RTP above `110%` | [Issue #8](https://github.com/NTCloudy/baccarat-e2e-dashboard/issues/8) · [Screenshot](./docs/bugs/bug-8.png) |
+| **#1** | High | `TC04` | **Third-card tableau bug**: Banker on initial `3` erroneously draws a third card when Player's third card is `8` | [Issue #1](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/1) · [Screenshot](./docs/bugs/bug-1.png) |
+| **#2** | High | `TC09` | **Tie settlement bug**: Tie outcome pays `1:8` on Tie but forfeits Player and Banker main bets instead of pushing | [Issue #2](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/2) · [Screenshot](./docs/bugs/bug-2.png) |
+| **#3** | High | `TC08` | **Banker 5% commission bug**: `1:0.95` payout uses `Math.floor` on dollars, truncating `$0.25` on a `$35` Banker win (`$68.00` instead of `$68.25`) | [Issue #3](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/3) · [Screenshot](./docs/bugs/bug-3.png) |
+| **#4** | Medium | `TC10` | **Pair side-bet bug**: Pair check requires identical suit in addition to identical rank, failing to pay mixed-suit pairs (`♠K` + `♥K`) | [Issue #4](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/4) · [Screenshot](./docs/bugs/bug-4.png) |
+| **#5** | High | `TC14` | **Wallet race condition**: Concurrent bets bypass per-session mutex locking, allowing 5 simultaneous `$200` bets on a `$200` balance to overdraw to `-$800.00` | [Issue #5](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/5) · [Screenshot](./docs/bugs/bug-5.png) |
+| **#6** | High | `TC15` | **Idempotency failure**: Duplicate bet retries with the same `idempotencyKey` are not deduplicated and debit the wallet 3 times | [Issue #6](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/6) · [Screenshot](./docs/bugs/bug-6.png) |
+| **#7** | High | `TC16` | **Late-bet vulnerability**: `POST /api/bets` accepts wagers even after `tableState` transitions to `BETTING_CLOSED` | [Issue #7](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/7) · [Screenshot](./docs/bugs/bug-7.png) |
+| **#8** | High | `TC20` | **Biased shoe RNG**: Shoe deals excess Player Natural 9 hands every 8th round, skewing 100k-round Player RTP above `110%` | [Issue #8](https://github.com/robinhood126937/baccarat-e2e-dashboard/issues/8) · [Screenshot](./docs/bugs/bug-8.png) |
 
 ---
 

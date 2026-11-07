@@ -1,7 +1,7 @@
 {
   "$comment": "Known iGaming bugs injected in the `with-bugs` target of the Baccarat table & seamless wallet server. Each bug is detected by an automated test case and documented in a GitHub Issue with screenshot/log evidence.",
   "source": {
-    "listUrl": "https://github.com/NTCloudy/baccarat-e2e-dashboard/issues",
+    "listUrl": "https://github.com/robinhood126937/baccarat-e2e-dashboard/issues",
     "total": 12
   },
   "bugs": [

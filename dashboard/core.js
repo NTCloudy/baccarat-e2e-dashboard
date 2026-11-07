@@ -3,7 +3,7 @@ import { splitTemplate } from './descriptions.js';
 import { LANGUAGES, MODULE_NAMES, STRINGS } from './i18n.js';
 import { DEFAULT_TARGET, TARGETS } from './targets.js';
 
-export const REPO = { owner: 'NTCloudy', name: 'baccarat-e2e-dashboard', branch: 'main' };
+export const REPO = { owner: 'robinhood126937', name: 'baccarat-e2e-dashboard', branch: 'main' };
 export const REPO_URL = `https://github.com/${REPO.owner}/${REPO.name}`;
 export const WORKFLOW_FILE = 'e2e.yml';
 export const WORKFLOW_URL = `${REPO_URL}/actions/workflows/${WORKFLOW_FILE}`;

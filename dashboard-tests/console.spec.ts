@@ -33,7 +33,7 @@ test.describe('Test console', () => {
     const { file, line } = catalogCase('TC07');
     await expect(consolePage.caseBody('TC07').getByRole('link', { name: '在 GitHub 查看這條案例的程式碼 ↗' })).toHaveAttribute(
       'href',
-      `https://github.com/NTCloudy/baccarat-e2e-dashboard/blob/main/${file}#L${line}`,
+      `https://github.com/robinhood126937/baccarat-e2e-dashboard/blob/main/${file}#L${line}`,
     );
 
     await consolePage.expand('TC01');
